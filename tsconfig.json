@@ -24,6 +24,12 @@
       ],
       "code-snippet/*": [
         "dist/code-snippet/*"
+      ],
+      "test": [
+        "dist/test"
+      ],
+      "test/*": [
+        "dist/test/*"
       ]
     }
   },

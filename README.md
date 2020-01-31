@@ -1,27 +1,81 @@
-# CodeSnippet
+# @nonoll/code-snippet
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21.
+This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
 
-## Development server
+## example - test
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- MutationObserver
 
-## Code scaffolding
+```javascript
+import { MutationObserver, MUTATION_EVENTS } from '@nonoll/my-lib/observer';
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+const createElement = ({ tag = 'div', id = '', style = '', value = '', text = '' }) => {
+ const doc = window.document;
+ const target = doc.createElement(tag);
+ target.setAttribute('id', id);
+ target.setAttribute('style', style);
+ target.setAttribute('value', value);
+ if (text) {
+   target.textContent = text;
+ }
+ return target;
+}
 
-## Build
+const forExample = () => {
+ const doc = window.document;
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+ const attachButton = createElement({ tag: 'button', text: 'observer attach' });
+ const detachButton = createElement({ tag: 'button', text: 'observer detach' });
+ const appendButton = createElement({ tag: 'button', text: 'append' });
 
-## Running unit tests
+ doc.body.appendChild(attachButton);
+ doc.body.appendChild(detachButton);
+ doc.body.appendChild(appendButton);
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+ attachButton.addEventListener('click', e => {
+   e.preventDefault();
+   console.log('attachButton clicked');
+   if (!observer) {
+     return;
+   }
+   observer.attach();
+ });
 
-## Running end-to-end tests
+ detachButton.addEventListener('click', e => {
+   e.preventDefault();
+   console.log('detachButton clicked');
+   if (!observer) {
+     return;
+   }
+   observer.detach();
+ });
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+ appendButton.addEventListener('click', e => {
+   e.preventDefault();
+   console.log('appendButton clicked');
+   if (!observer) {
+     return;
+   }
+   const input = createElement({ tag: 'input', value: `${+new Date()}` });
+   target.appendChild(input);
+ });
+}
 
-## Further help
+const target = createElement({ id: 'example_target', style: 'border: 1px solid red' });
+window.document.body.appendChild(target);
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+const options = {
+ childList: true,
+ subtree: true
+};
+
+const observer = new MutationObserver({ target, options });
+observer.on(MUTATION_EVENTS.WILD_CARD, (type, values) => {
+ console.log('wildCard', type, values);
+}).on(MUTATION_EVENTS.CHANGE_CHILD_LIST, values => {
+ console.log('childList', values);
+});
+observer.attach();
+
+forExample();
+```
