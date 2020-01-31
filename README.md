@@ -6,6 +6,14 @@ This library was generated with [Angular CLI](https://github.com/angular/angular
 
 - MutationObserver
 
+<iframe
+  src="https://codesandbox.io/embed/wonderful-johnson-9gko8/observer-MutationObserver.html?fontsize=14&hidenavigation=1&theme=dark"
+  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+  title="@nonoll/code-snippet"
+  allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+  sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+></iframe>
+
 ```javascript
 import { MutationObserver, MUTATION_EVENTS } from '@nonoll/my-lib/observer';
 
