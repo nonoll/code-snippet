@@ -1,6 +1,7 @@
 {
   "name": "@nonoll/code-snippet",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "license": "MIT",
   "author": {
     "name": "nonoll",
     "email": "hkroh.nonoll@gmail.com",
@@ -14,6 +15,11 @@
     "url": "https://github.com/nonoll/code-snippet/issues",
     "email": "hkroh.nonoll@gmail.com"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "homepage": "https://nonoll.github.io/code-snippet",
+  "keywords": [],
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14"
