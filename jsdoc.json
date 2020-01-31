@@ -1,0 +1,46 @@
+{
+	"tags": {
+		"allowUnknownTags" : true,
+		"dictionaries": ["jsdoc","closure"]
+	},
+	"source": {
+		"include": [
+			"README.md",
+			"./projects/code-snippet/browser",
+			"./projects/code-snippet/event",
+			"./projects/code-snippet/functions",
+			"./projects/code-snippet/observer",
+			"./projects/code-snippet/types"
+		],
+		"includePattern": ".+\\.(j|t)s(doc|x)?$",
+    "excludePattern": "(node_modules/|docs)"
+	},
+	"plugins": [
+    "plugins/markdown"
+	],
+	"opts": {
+		"template": "node_modules/ink-docstrap/template",
+		"encoding": "utf8",
+		"destination": "./docs/",
+		"recurse": true,
+		"verbose": true
+	},
+	"templates": {
+		"theme": "simplex",
+		"navType": "vertical",
+		"inverseNav": true,
+		"syntaxTheme": "dark",
+		"cleverLinks": false,
+		"monospaceLinks": false,
+		"dateFormat": "YYYY-MM-DD",
+		"outputSourceFiles": true,
+		"outputSourcePath": true,
+		"systemName": "@nonoll/code-snippet",
+		"footer": "",
+		"copyright": "@nonoll/code-snippet",
+		"linenums": true,
+		"collapseSymbols": false,
+		"protocol": "html://",
+		"methodHeadingReturns": false
+	}
+}

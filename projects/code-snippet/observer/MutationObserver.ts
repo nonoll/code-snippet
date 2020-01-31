@@ -3,7 +3,20 @@ import { EventEmitter } from '../event/EventEmitter';
 import { debounce as _debounce } from '../functions/debounce';
 import { noop } from '../functions/noop';
 
-interface MutationObserverInit {
+/**
+ * pure MutationObserver init options
+ * @memberof MutationObserver
+ * @typedef
+ * @property - target 의 하위 요소 추가 / 삭제 감지 유무
+ * @property - target 의 속성 변경 감지 유무
+ * @property - target 의 데이터 변경 감지 유무
+ * @property - target 의 하위 요소 변경 사항 감지 유무
+ * @property - target 의 ...
+ * @property - target 의 ...
+ * @property - target 의 ... [MDN attributeFilter]{@link https://developer.mozilla.org/en-US/docs/Web/API/MutationObserverInit/attributeFilter}
+ * @see https://developer.mozilla.org/ko/docs/Web/API/MutationObserver#MutationObserverInit
+ */
+interface IMutationObserverInit {
   childList?: boolean;
   attributes?: boolean;
   characterData?: boolean;
@@ -13,19 +26,38 @@ interface MutationObserverInit {
   attributeFilter?: string[];
 }
 
-interface MutationObserverExtOption {
+/**
+ * MutationObserver init options
+ * @memberof MutationObserver
+ * @typedef
+ * @property - 감지할 element
+ * @property - 이벤트 debounce 값
+ * @property - 이벤트 callback
+ * @property - 세부 MutationObserver options
+ */
+interface IMutationObserverExtOption {
   target: HTMLElement;
   debounce?: number;
   callback?: TypeVoidFunction;
-  options?: MutationObserverInit;
+  options?: IMutationObserverInit;
 }
 
+
 /**
- * MutationRecordType
+ * @typedef {String} MutationRecordType
+ * @alias MutationRecordType
+ * @memberof MutationObserver
+ * @see https://developer.mozilla.org/ko/docs/Web/API/MutationObserver#MutationObserverInit
+ * @property {String} childList
+ * @property {String} attributes
+ * @property {String} characterData
+ * @property {String} subtree
+ */
+// for jsdoc
+/**
  * @export
  * @readonly
- * @enum {string}
- * @see https://developer.mozilla.org/ko/docs/Web/API/MutationObserver#MutationObserverInit
+ * @enum {MutationRecordType}
  */
 export enum MutationRecordType {
   childList = 'childList',
@@ -34,24 +66,30 @@ export enum MutationRecordType {
   subtree = 'subtree'
 }
 
+
 /**
  * MutationEvent Types
+ * @event MutationObserver#MUTATION_EVENTS
+ * @memberof MutationObserver
+ * @property {String} CHANGE_CHILD_LIST - childList 변경 시점
+ * @property {String} CHANGE_SUBTREE - subtree 변경 시점
+ * @property {String} CHANGE_ATTRIBUTES - attributes 변경 시점
+ * @property {String} CHANGE_CHARACTER_DATA - data 변경 시점
+ * @property {String} CHANGE - 기타 변경 시점
+ * @property {String} WILD_CARD - 모든 변경 시점
+ */
+// for jsdoc
+/**
  * @export
  * @readonly
- * @enum {string}
+ * @enum {MUTATION_EVENTS}
  */
 export enum MUTATION_EVENTS {
-  /** change childList */
   CHANGE_CHILD_LIST = 'MUTATION_OBERSERVER-EVENTS-CHANGE_CHILD_LIST',
-  /** change subtree */
   CHANGE_SUBTREE = 'MUTATION_OBERSERVER-EVENTS-CHANGE_SUBTREE',
-  /** change attributes */
   CHANGE_ATTRIBUTES = 'MUTATION_OBERSERVER-EVENTS-CHANGE_ATTRIBUTES',
-  /** change characterData */
   CHANGE_CHARACTER_DATA = 'MUTATION_OBERSERVER-EVENTS-CHANGE_CHARACTER_DATA',
-  /** change other case */
   CHANGE = 'MUTATION_OBERSERVER-EVENTS-CHANGE',
-  /** change wildcard - all case */
   WILD_CARD = 'MUTATION_OBERSERVER-EVENTS-CHANGE_WILCD_CARD'
 }
 
@@ -75,83 +113,107 @@ class PureMutationObserver {
 }
 
 /**
+ * target 으로 설정된 element 의 변화를 감지
+  <iframe
+    src="https://codesandbox.io/embed/nonollcode-snippet-9gko8?autoresize=1&expanddevtools=1&fontsize=14&hidenavigation=1&initialpath=%2Fobserver-MutationObserver.html&module=%2Fobserver-MutationObserver.html&theme=dark"
+    style="width:100%; height:500px; border:1px solid black; border-radius: 4px; overflow:hidden;"
+    title="@nonoll/code-snippet"
+    allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+    sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+  ></iframe>
  * @export
  * @class MutationObserver
+ * @alias observer/MutationObserver
  * @extends EventEmitter
  * @see https://developer.mozilla.org/ko/docs/Web/API/MutationObserver
  * @see https://github.com/webmodules/mutation-observer
+ * @see https://developer.mozilla.org/ko/docs/Web/API/MutationObserver#MutationObserverInit
  * @example
- * import { MutationObserver, MUTATION_EVENTS } from '@nonoll/my-lib/observer';
- *
- * const createElement = ({ tag = 'div', id = '', style = '', value = '', text = '' }) => {
- *  const doc = window.document;
- *  const target = doc.createElement(tag);
- *  target.setAttribute('id', id);
- *  target.setAttribute('style', style);
- *  target.setAttribute('value', value);
- *  if (text) {
- *    target.textContent = text;
- *  }
- *  return target;
- * }
- *
- * const forExample = () => {
- *  const doc = window.document;
- *
- *  const attachButton = createElement({ tag: 'button', text: 'observer attach' });
- *  const detachButton = createElement({ tag: 'button', text: 'observer detach' });
- *  const appendButton = createElement({ tag: 'button', text: 'append' });
- *
- *  doc.body.appendChild(attachButton);
- *  doc.body.appendChild(detachButton);
- *  doc.body.appendChild(appendButton);
- *
- *  attachButton.addEventListener('click', e => {
- *    e.preventDefault();
- *    console.log('attachButton clicked');
- *    if (!observer) {
- *      return;
- *    }
- *    observer.attach();
- *  });
- *
- *  detachButton.addEventListener('click', e => {
- *    e.preventDefault();
- *    console.log('detachButton clicked');
- *    if (!observer) {
- *      return;
- *    }
- *    observer.detach();
- *  });
- *
- *  appendButton.addEventListener('click', e => {
- *    e.preventDefault();
- *    console.log('appendButton clicked');
- *    if (!observer) {
- *      return;
- *    }
- *    const input = createElement({ tag: 'input', value: `${+new Date()}` });
- *    target.appendChild(input);
- *  });
- * }
- *
- * const target = createElement({ id: 'example_target', style: 'border: 1px solid red' });
- * window.document.body.appendChild(target);
- *
- * const options = {
- *  childList: true,
- *  subtree: true
- * };
- *
- * const observer = new MutationObserver({ target, options });
- * observer.on(MUTATION_EVENTS.WILD_CARD, (type, values) => {
- *  console.log('wildCard', type, values);
- * }).on(MUTATION_EVENTS.CHANGE_CHILD_LIST, values => {
- *  console.log('childList', values);
- * });
- * observer.attach();
- *
- * forExample();
+import { MutationObserver, MUTATION_EVENTS } from '@nonoll/code-snippet/observer';
+
+const createElement = ({ tag = 'div', id = '', style = '', value = '', text = '' }) => {
+  const doc = window.document;
+  const target = doc.createElement(tag);
+  target.setAttribute('id', id);
+  target.setAttribute('style', style);
+  target.setAttribute('value', value);
+  if (text) {
+    target.textContent = text;
+  }
+  return target;
+}
+
+const forExample = () => {
+  const doc = window.document;
+
+  const attachButton = createElement({ tag: 'button', text: 'observer attach' });
+  const detachButton = createElement({ tag: 'button', text: 'observer detach' });
+  const appendButton = createElement({ tag: 'button', text: 'append' });
+
+  doc.body.appendChild(attachButton);
+  doc.body.appendChild(detachButton);
+  doc.body.appendChild(appendButton);
+
+  attachButton.addEventListener('click', e => {
+    e.preventDefault();
+    console.log('attachButton clicked');
+    if (!observer) {
+      return;
+    }
+    observer.attach();
+  });
+
+  detachButton.addEventListener('click', e => {
+    e.preventDefault();
+    console.log('detachButton clicked');
+    if (!observer) {
+      return;
+    }
+    observer.detach();
+  });
+
+  appendButton.addEventListener('click', e => {
+    e.preventDefault();
+    console.log('appendButton clicked');
+    if (!observer) {
+      return;
+    }
+    const input = createElement({ tag: 'input', value: `${+new Date()}` });
+    target.appendChild(input);
+  });
+}
+
+const target = createElement({ id: 'example_target', style: 'border: 1px solid red' });
+window.document.body.appendChild(target);
+
+const options = {
+  childList: true,
+  subtree: true
+};
+
+const observer = new MutationObserver({ target, options });
+
+observer.on(MUTATION_EVENTS.WILD_CARD, (type, values) => {
+  console.log('wildCard', type, values);
+}).on(MUTATION_EVENTS.CHANGE_CHILD_LIST, values => {
+  console.log('childList', values);
+});
+
+observer.attach();
+
+forExample();
+ * @param {Partial<IMutationObserverExtOption>} option
+ * @param {HTMLElement} [option.target=null] target
+ * @param {Number} [option.debounce=300] debounce
+ * @param {Function|null} [option.callback={@link noop}] callback function
+ * @param {Object} [option.options={}]
+ * @param {Boolean} [option.options.childList]
+ * @param {Boolean} [option.options.attributes]
+ * @param {Boolean} [option.options.characterData]
+ * @param {Boolean} [option.options.subtree]
+ * @param {Boolean} [option.options.attributeOldValue]
+ * @param {Boolean} [option.options.characterDataOldValue]
+ * @param {Array.<String>} [option.options.attributeFilter] [MDN attributeFilter]{@link https://developer.mozilla.org/en-US/docs/Web/API/MutationObserverInit/attributeFilter}
  */
 export class MutationObserver extends EventEmitter {
   private target: HTMLElement;
@@ -159,7 +221,7 @@ export class MutationObserver extends EventEmitter {
   private observer: PureMutationObserver;
   private options: MutationObserverInit;
 
-  constructor({ target = null, debounce = 300, callback = noop, options = {} }: MutationObserverExtOption) {
+  constructor({ target = null, debounce = 300, callback = noop, options = {} }: Partial<IMutationObserverExtOption>) {
     super();
 
     const defaultOptions = { childList: true, subtree: true };
@@ -176,11 +238,40 @@ export class MutationObserver extends EventEmitter {
     }
   }
 
+  /**
+   * 이벤트 감지 설정
+   * @returns {MutationObserver}
+   * @memberof MutationObserver
+   * @example
+   observer.attach();
+   */
   public attach(): MutationObserver {
     this.observer.observe(this.target, this.options);
     return this;
   }
 
+  /**
+   * 이벤트 감지 등록
+   * @override
+   * @param {string} eventName
+   * @param {TypeVoidFunction} [listener={@link noop}]
+   * @param {*} [context]
+   * @memberof MutationObserver
+   * @listens MutationObserver#MUTATION_EVENTS
+   * @returns {MutationObserver}
+   */
+  public on(eventName: string, listener: TypeVoidFunction = noop, context?: any): MutationObserver {
+    super.on(eventName, listener, context);
+    return this;
+  }
+
+  /**
+   * 변화 감지 이벤트 리스너
+   * @private
+   * @param {MutationRecord[]} mutations [MDN MutationRecord]{@link https://developer.mozilla.org/en-US/docs/Web/API/MutationRecord}
+   * @memberof MutationObserver
+   * @fires MutationObserver#MUTATION_EVENTS
+   */
   private onMutationObserverListener(mutations: MutationRecord[]): void {
     mutations.forEach(mutation => {
       const type = mutation.type as MutationRecordType;
@@ -220,6 +311,13 @@ export class MutationObserver extends EventEmitter {
     });
   }
 
+  /**
+   * 이벤트 감지 해제
+   * @returns {MutationObserver}
+   * @memberof MutationObserver
+   * @example
+   observer.detach();
+   */
   public detach(): MutationObserver {
     if (this.observer) {
       this.observer.disconnect();
@@ -227,6 +325,13 @@ export class MutationObserver extends EventEmitter {
     return this;
   }
 
+  /**
+   * destory
+   * @returns {MutationObserver}
+   * @memberof MutationObserver
+   * @example
+   observer.destroy();
+   */
   public destroy(): MutationObserver {
     this.detach();
     this.observer = null;
