@@ -2,9 +2,13 @@
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
 
-## example - test
+## example
 
-- MutationObserver
+### @nonoll/code-snippet/observer
+
+#### MutationObserver
+
+[![Edit @nonoll/code-snippet](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/wonderful-johnson-9gko8?expanddevtools=1&fontsize=14&hidenavigation=1&initialpath=%2Fobserver-MutationObserver.html&module=%2Fobserver-MutationObserver.html&theme=dark)
 
 ```javascript
 import { MutationObserver, MUTATION_EVENTS } from '@nonoll/my-lib/observer';
