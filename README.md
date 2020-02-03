@@ -6,7 +6,7 @@
 ![NPM license](https://img.shields.io/npm/l/@nonoll/code-snippet?style=for-the-badge)
 ![NPM bundle size](https://img.shields.io/bundlephobia/min/@nonoll/code-snippet?style=for-the-badge)
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
+This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14. 
 
 ## example
  

@@ -1,3 +1,0 @@
-always-auth=true
-registry=https://www.npmjs.com/package/@nonoll/code-snippet
-//registry.npmjs.org/@nonoll/code-snippet/:_authToken=${NPM_PUBLISH_TOKEN}

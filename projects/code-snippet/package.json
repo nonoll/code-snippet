@@ -16,7 +16,8 @@
     "email": "hkroh.nonoll@gmail.com"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
   },
   "homepage": "https://nonoll.github.io/code-snippet",
   "keywords": [],

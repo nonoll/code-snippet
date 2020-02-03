@@ -1,5 +1,7 @@
 language: node_js
 
+os: linux
+
 node_js:
 - "10"
 
@@ -41,18 +43,24 @@ script:
 
 
 deploy:
-  # 배포 설정 - github page
-  - provider: pages
-    skip-cleanup: true
-    keep-history: true
-    github-token: $GITHUB_CODE-SNIPPET_TOKEN
-    local_dir: docs
+  # 배포 설정 - npm module
+  - provider: npm
+    edge: true
+    skip_cleanup: true
+    email: $NPM_PUBLISH_EMAIL
+    api_key: $NPM_PUBLISH_TOKEN
+    src: ./dist/code-snippet
+    access: public
     on:
+      tags: true
+      repo: nonoll/code-snippet
       branch: master
 
-  # 배포 설정 - npm module
-  - provider: script
-    script: "cp .npmrc.template $HOME/.npmrc && npm publish ./dist/code-snippet --access=public"
+  # 배포 설정 - github page
+  - provider: pages
+    edge: true
     skip_cleanup: true
+    github-token: $GITHUB_CODE_SNIPPET_TOKEN
+    local_dir: docs
     on:
       branch: master
