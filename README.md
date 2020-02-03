@@ -1,9 +1,10 @@
 # @nonoll/code-snippet
 
-<!-- ![travis](https://img.shields.io/travis/com/bevry/badges/master.svg?style=for-the-badge) -->
+![TRAVIS](https://img.shields.io/travis/com/nonoll/code-snippet/master.svg?style=for-the-badge)
 ![NPM version](https://img.shields.io/npm/v/@nonoll/code-snippet.svg?style=for-the-badge)
 ![NPM download](https://img.shields.io/npm/dt/@nonoll/code-snippet?style=for-the-badge)
 ![NPM license](https://img.shields.io/npm/l/@nonoll/code-snippet?style=for-the-badge)
+![NPM bundle size](https://img.shields.io/bundlephobia/min/@nonoll/code-snippet?style=for-the-badge)
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
 
