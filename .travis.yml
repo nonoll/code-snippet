@@ -45,6 +45,7 @@ script:
 deploy:
   # 배포 설정 - github page
   - provider: pages
+    edge: true
     skip_cleanup: true
     github-token: $GITHUB_CODE_SNIPPET_TOKEN
     local_dir: docs
@@ -52,8 +53,13 @@ deploy:
       branch: master
 
   # 배포 설정 - npm module
-  - provider: script
+  - provider: npm
+    edge: true
     skip_cleanup: true
-    script: "cp .npmrc.template $HOME/.npmrc && npm publish ./dist/code-snippet --access=public"
+    email: "$NPM_PUBLISH_EMAIL"
+    api_key: "$NPM_PUBLISH_TOKEN"
+    src: ./dist/code-snippet
+    access: public
+    # script: "cp .npmrc.template $HOME/.npmrc && npm publish ./dist/code-snippet --access=public"
     on:
       branch: master
