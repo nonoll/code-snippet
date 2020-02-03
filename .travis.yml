@@ -1,5 +1,7 @@
 language: node_js
 
+os: linux
+
 node_js:
 - "10"
 
@@ -43,15 +45,13 @@ script:
 deploy:
   # 배포 설정 - github page
   - provider: pages
-    skip-cleanup: true
-    keep-history: true
     github-token: $GITHUB_CODE_SNIPPET_TOKEN
+    local_dir: docs
     on:
       branch: master
 
   # 배포 설정 - npm module
   - provider: script
     script: "cp .npmrc.template $HOME/.npmrc && npm publish ./dist/code-snippet --access=public"
-    skip_cleanup: true
     on:
       branch: master
