@@ -44,14 +44,16 @@ script:
 
 deploy:
   # 배포 설정 - github page
-  # - provider: pages
-  #   github-token: $GITHUB_CODE_SNIPPET_TOKEN
-  #   local_dir: docs
-  #   on:
-  #     branch: master
+  - provider: pages
+    skip_cleanup: true
+    github-token: $GITHUB_CODE_SNIPPET_TOKEN
+    local_dir: docs
+    on:
+      branch: master
 
   # 배포 설정 - npm module
   - provider: script
+    skip_cleanup: true
     script: "cp .npmrc.template $HOME/.npmrc && npm publish ./dist/code-snippet --access=public"
     on:
       branch: master
