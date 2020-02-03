@@ -23,7 +23,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "jsdoc": "rm -rf ./docs && jsdoc -c jsdoc.json -p"
+    "jsdoc": "rm -rf ./docs && jsdoc -c jsdoc.json -p",
+    "dev-env": "git-hooks/install_hooks.sh"
   },
   "private": true,
   "dependencies": {
