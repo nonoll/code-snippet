@@ -1,6 +1,21 @@
 {
   "name": "code-snippet",
   "version": "0.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "nonoll",
+    "email": "hkroh.nonoll@gmail.com",
+    "url": "https://nonoll.github.io/code-snippet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nonoll/code-snippet.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nonoll/code-snippet/issues",
+    "email": "hkroh.nonoll@gmail.com"
+  },
+  "homepage": "https://nonoll.github.io/code-snippet",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
