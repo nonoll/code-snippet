@@ -46,7 +46,6 @@ deploy:
     skip-cleanup: true
     keep-history: true
     github-token: $GITHUB_CODE_SNIPPET_TOKEN
-    local_dir: public
     on:
       branch: master
 
