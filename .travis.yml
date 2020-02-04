@@ -14,12 +14,12 @@ env:
   - DISPLAY=:99.0
 
 # Use APT Addon to install Chrome
-addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
+# addons:
+#   apt:
+#     sources:
+#       - google-chrome
+#     packages:
+#       - google-chrome-stable
 
 # 알림 설정
 # see: https://docs.travis-ci.com/user/notifications#configuring-email-notifications
@@ -50,12 +50,12 @@ notifications:
 install:
   - npm install
 
-before_script:
+# before_script:
   # see: https://github.com/yelloxing/image2D/issues/15#issuecomment-521853672
-  - sh -e /etc/init.d/xvfb start
+  # - sh -e /etc/init.d/xvfb start
 
-# services:
-#   - xvfb
+services:
+  - xvfb
 
 script:
   - npm run build
