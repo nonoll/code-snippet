@@ -3,7 +3,7 @@ language: node_js
 os: linux
 
 node_js:
-- "10"
+- "stable"
 
 cache:
   directories:
@@ -19,11 +19,6 @@ notifications:
     # see: https://docs.travis-ci.com/user/notifications/#changing-notification-frequency
     on_success: never
     on_failure: always
-
-# see: https://docs.travis-ci.com/user/gui-and-headless-browsers/#using-xvfb-to-run-tests-that-require-a-gui
-# dist: xenial
-# services:
-#   - xvfb
 
 # Job Lifecycle
 # 1.  OPTIONAL Install apt addons
@@ -44,15 +39,16 @@ install:
   - npm install
 
 before_script:
-  # see: https://docs.travis-ci.com/user/gui-and-headless-browsers/#using-xvfb-directly
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
+  # see: https://github.com/yelloxing/image2D/issues/15#issuecomment-521853672
+  - export CHROME_BIN=chromium-browser
+
+services:
+  - xvfb
 
 script:
   - npm run build
   - npm run jsdoc
-  - npm run test:travis
+  - npm run test
 
 branches:
   only:
