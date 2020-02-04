@@ -1,9 +1,12 @@
 # @nonoll/code-snippet
+
 - This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
 
 ## Status
 
 ![TRAVIS](https://img.shields.io/travis/com/nonoll/code-snippet/master.svg?style=for-the-badge)
+![Coveralls github branch](https://img.shields.io/coveralls/github/nonoll/code-snippet/master?style=for-the-badge)
+
 ![NPM version](https://img.shields.io/npm/v/@nonoll/code-snippet.svg?style=for-the-badge)
 ![NPM download](https://img.shields.io/npm/dt/@nonoll/code-snippet?style=for-the-badge)
 
