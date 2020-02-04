@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { VisibilityChangeObserver, VISIBILITY_EVENTS } from '../VisibilityChangeObserver';
+import { VisibilityChangeObserver, VISIBILITY_EVENTS } from '../index';
 
 describe('# @nonoll/code-snippet/observer/VisibilityChangeObserver Spec Test', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

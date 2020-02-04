@@ -1,7 +1,6 @@
-import { TypeVoidFunction } from '../types/voidFunction';
-import { EventEmitter } from '../event/EventEmitter';
-import { debounce as _debounce } from '../functions/debounce';
-import { noop } from '../functions/noop';
+import { TypeVoidFunction } from '../types';
+import { EventEmitter } from '../event';
+import { debounce as _debounce, noop } from '../functions';
 
 /**
  * pure MutationObserver init options
@@ -128,6 +127,18 @@ class PureMutationObserver {
  * @see https://developer.mozilla.org/ko/docs/Web/API/MutationObserver
  * @see https://github.com/webmodules/mutation-observer
  * @see https://developer.mozilla.org/ko/docs/Web/API/MutationObserver#MutationObserverInit
+ * @param {Partial<IMutationObserverExtOption>} option
+ * @param {HTMLElement} [option.target=null] target
+ * @param {Number} [option.debounce=300] debounce
+ * @param {Function|null} [option.callback={@link noop}] callback function
+ * @param {Object} [option.options={}]
+ * @param {Boolean} [option.options.childList]
+ * @param {Boolean} [option.options.attributes]
+ * @param {Boolean} [option.options.characterData]
+ * @param {Boolean} [option.options.subtree]
+ * @param {Boolean} [option.options.attributeOldValue]
+ * @param {Boolean} [option.options.characterDataOldValue]
+ * @param {Array.<String>} [option.options.attributeFilter] [MDN attributeFilter]{@link https://developer.mozilla.org/en-US/docs/Web/API/MutationObserverInit/attributeFilter}
  * @example
 import { MutationObserver, MUTATION_EVENTS } from '@nonoll/code-snippet/observer';
 
@@ -143,8 +154,33 @@ const createElement = ({ tag = 'div', id = '', style = '', value = '', text = ''
   return target;
 }
 
+let observer;
+
 const forExample = () => {
+  if (observer) {
+    console.log('already example');
+    return;
+  }
+
   const doc = window.document;
+
+  const target = createElement({ id: 'example_target', style: 'border: 1px solid red' });
+  doc.body.appendChild(target);
+
+  const options = {
+    childList: true,
+    subtree: true
+  };
+
+  observer = new MutationObserver({ target, options });
+
+  observer.on(MUTATION_EVENTS.WILD_CARD, (type, values) => {
+    console.log('wildCard', type, values);
+  }).on(MUTATION_EVENTS.CHANGE_CHILD_LIST, values => {
+    console.log('childList', values);
+  });
+
+  observer.attach();
 
   const attachButton = createElement({ tag: 'button', text: 'observer attach' });
   const detachButton = createElement({ tag: 'button', text: 'observer detach' });
@@ -183,37 +219,7 @@ const forExample = () => {
   });
 }
 
-const target = createElement({ id: 'example_target', style: 'border: 1px solid red' });
-window.document.body.appendChild(target);
-
-const options = {
-  childList: true,
-  subtree: true
-};
-
-const observer = new MutationObserver({ target, options });
-
-observer.on(MUTATION_EVENTS.WILD_CARD, (type, values) => {
-  console.log('wildCard', type, values);
-}).on(MUTATION_EVENTS.CHANGE_CHILD_LIST, values => {
-  console.log('childList', values);
-});
-
-observer.attach();
-
 forExample();
- * @param {Partial<IMutationObserverExtOption>} option
- * @param {HTMLElement} [option.target=null] target
- * @param {Number} [option.debounce=300] debounce
- * @param {Function|null} [option.callback={@link noop}] callback function
- * @param {Object} [option.options={}]
- * @param {Boolean} [option.options.childList]
- * @param {Boolean} [option.options.attributes]
- * @param {Boolean} [option.options.characterData]
- * @param {Boolean} [option.options.subtree]
- * @param {Boolean} [option.options.attributeOldValue]
- * @param {Boolean} [option.options.characterDataOldValue]
- * @param {Array.<String>} [option.options.attributeFilter] [MDN attributeFilter]{@link https://developer.mozilla.org/en-US/docs/Web/API/MutationObserverInit/attributeFilter}
  */
 export class MutationObserver extends EventEmitter {
   private target: HTMLElement;
