@@ -1,2 +1,5 @@
+/**
+ * @module module:browser
+ */
 export * from './isAOS';
-export * from './prefix';
+export * from './vendorPrefix';
