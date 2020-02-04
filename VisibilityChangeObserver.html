@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>@nonoll/code-snippet Class: EventEmitter</title>
+	<title>@nonoll/code-snippet Class: VisibilityChangeObserver</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -86,15 +86,13 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: EventEmitter</h1>
+	<h1 class="page-title">Class: VisibilityChangeObserver</h1>
 <section>
 
 <header>
     
         <h2>
-            <span class="ancestors"><a href="global.html#event">event</a></span>
-        
-        EventEmitter
+        VisibilityChangeObserver
         </h2>
         
     
@@ -107,7 +105,7 @@
         
 <hr>
 <dt>
-    <h4 class="name" id="EventEmitter"><span class="type-signature"></span>new EventEmitter()</h4>
+    <h4 class="name" id="VisibilityChangeObserver"><span class="type-signature"></span>new VisibilityChangeObserver()</h4>
     
     
 </dt>
@@ -115,14 +113,7 @@
 
     
     <div class="description">
-        <p>EventEmitter 의 기능과 동일한 맥락으로, 간단히 구성</p>
-  <iframe
-    src="https://codesandbox.io/embed/nonollcode-snippet-9gko8?autoresize=1&expanddevtools=1&fontsize=14&hidenavigation=1&initialpath=%2Fevent-EventEmitter.html&module=%2Fevent-EventEmitter.html&theme=dark"
-    style="width:100%; height:500px; border:1px solid black; border-radius: 4px; overflow:hidden;"
-    title="@nonoll/code-snippet"
-    allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
-    sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
-  ></iframe>
+        <p>browser 의 visibility 변화를 감지</p>
     </div>
     
 
@@ -168,8 +159,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="event_EventEmitter.ts.html">event/EventEmitter.ts</a>,
-				 <a href="event_EventEmitter.ts.html#sunlight-1-line-18">line 18</a>
+				<a href="observer_VisibilityChangeObserver.ts.html">observer/VisibilityChangeObserver.ts</a>,
+				 <a href="observer_VisibilityChangeObserver.ts.html#sunlight-1-line-67">line 67</a>
 			</li>
 		</ul>
 	</dd>
@@ -177,13 +168,6 @@
 
 	
 
-	
-	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
-	<dd class="tag-see">
-		<ul>
-			<li><a href="https://www.npmjs.com/package/events">https://www.npmjs.com/package/events</a></li>
-			</ul>
-	</dd>
 	
 
 	
@@ -203,77 +187,21 @@
     
 
     
-        <h5>Example</h5>
-        
-    <pre class="sunlight-highlight-javascript">import { EventEmitter } from &#x27;@nonoll/code-snippet/event&#x27;;
-
-const createElement = ({ tag = &#x27;div&#x27;, id = &#x27;&#x27;, style = &#x27;&#x27;, value = &#x27;&#x27;, text = &#x27;&#x27; }) =&gt; {
-  const doc = window.document;
-  const target = doc.createElement(tag);
-  target.setAttribute(&#x27;id&#x27;, id);
-  target.setAttribute(&#x27;style&#x27;, style);
-  target.setAttribute(&#x27;value&#x27;, value);
-  if (text) {
-    target.textContent = text;
-  }
-  return target;
-}
-
-let ee;
-const forExample = () =&gt; {
-  const doc = window.document;
-
-  const onButton = createElement({ tag: &#x27;button&#x27;, text: &#x27;on button&#x27; });
-  const offButton = createElement({ tag: &#x27;button&#x27;, text: &#x27;off button&#x27; });
-  const emitButton = createElement({ tag: &#x27;button&#x27;, text: &#x27;emit button&#x27; });
-  const EVENT_NAME = &#x27;EVENT_EXAMPLE&#x27;;
-
-  doc.body.appendChild(onButton);
-  doc.body.appendChild(offButton);
-  doc.body.appendChild(emitButton);
-
-  ee = new EventEmitter();
-  ee.on(EVENT_NAME, res =&gt; console.log(res));
-
-  onButton.addEventListener(&#x27;click&#x27;, e =&gt; {
-    e.preventDefault();
-    console.log(&#x27;onButton clicked&#x27;);
-    if (!ee) {
-      return;
-    }
-    ee.off(EVENT_NAME);
-    ee.on(EVENT_NAME, res =&gt; console.log(res));
-  });
-
-  offButton.addEventListener(&#x27;click&#x27;, e =&gt; {
-    e.preventDefault();
-    console.log(&#x27;offButton clicked&#x27;);
-    if (!ee) {
-      return;
-    }
-    ee.off(EVENT_NAME);
-  });
-
-  emitButton.addEventListener(&#x27;click&#x27;, e =&gt; {
-    e.preventDefault();
-    console.log(&#x27;emitButton clicked&#x27;);
-    if (!ee) {
-      return;
-    }
-    ee.emit(EVENT_NAME, new Date());
-  });
-}
-
-forExample();</pre>
-
-
-    
 </dd>
 
     
     </div>
 
     
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li><a href="EventEmitter.html">EventEmitter</a></li>
+    </ul>
+
 
     
 
@@ -283,12 +211,1017 @@ forExample();</pre>
 
     
 
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        <dl>
+            
+<hr>
+<dt class="name" id=".HIDDEN_METHOD_NAME">
+    <h4 id=".HIDDEN_METHOD_NAME"><span class="type-signature">&lt;static, constant> </span>HIDDEN_METHOD_NAME<span class="type-signature"> :String</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>browser 상의 visibility hidden 시점의 event 명</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="observer_VisibilityChangeObserver.ts.html">observer/VisibilityChangeObserver.ts</a>,
+				 <a href="observer_VisibilityChangeObserver.ts.html#sunlight-1-line-47">line 47</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".VENDOR_PREFIX">
+    <h4 id=".VENDOR_PREFIX"><span class="type-signature">&lt;static, constant> </span>VENDOR_PREFIX<span class="type-signature"> :String</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>getVendorPrefix 의 값</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="observer_VisibilityChangeObserver.ts.html">observer/VisibilityChangeObserver.ts</a>,
+				 <a href="observer_VisibilityChangeObserver.ts.html#sunlight-1-line-31">line 31</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".VISIBILITY_EVENT_NAME">
+    <h4 id=".VISIBILITY_EVENT_NAME"><span class="type-signature">&lt;static, constant> </span>VISIBILITY_EVENT_NAME<span class="type-signature"> :String</span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>browser 상의 visibilitychange event 명</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="observer_VisibilityChangeObserver.ts.html">observer/VisibilityChangeObserver.ts</a>,
+				 <a href="observer_VisibilityChangeObserver.ts.html#sunlight-1-line-39">line 39</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        </dl>
     
 
     
         <h3 class="subsection-title">Methods</h3>
 
         <dl>
+            
+<hr>
+<dt>
+    <h4 class="name" id=".getVendorPrefix"><span class="type-signature">&lt;static> </span>getVendorPrefix()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>실행된 browser 기준으로, visibilityChange event 에 맞는 vendorPrefix 반환</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="observer_VisibilityChangeObserver.ts.html">observer/VisibilityChangeObserver.ts</a>,
+				 <a href="observer_VisibilityChangeObserver.ts.html#sunlight-1-line-11">line 11</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".hiddenMethodName"><span class="type-signature">&lt;static> </span>hiddenMethodName()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>visibility hidden event 명 반환</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="observer_VisibilityChangeObserver.ts.html">observer/VisibilityChangeObserver.ts</a>,
+				 <a href="observer_VisibilityChangeObserver.ts.html#sunlight-1-line-101">line 101</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".isSupportVisibilityChange"><span class="type-signature">&lt;static> </span>isSupportVisibilityChange()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>visibility change 지원 여부 반환</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="observer_VisibilityChangeObserver.ts.html">observer/VisibilityChangeObserver.ts</a>,
+				 <a href="observer_VisibilityChangeObserver.ts.html#sunlight-1-line-111">line 111</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".visibilityEventName"><span class="type-signature">&lt;static> </span>visibilityEventName()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>visibilitychange event 명 반환</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="observer_VisibilityChangeObserver.ts.html">observer/VisibilityChangeObserver.ts</a>,
+				 <a href="observer_VisibilityChangeObserver.ts.html#sunlight-1-line-91">line 91</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="attach"><span class="type-signature"></span>attach()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>이벤트 감지 설정</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="observer_VisibilityChangeObserver.ts.html">observer/VisibilityChangeObserver.ts</a>,
+				 <a href="observer_VisibilityChangeObserver.ts.html#sunlight-1-line-150">line 150</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="VisibilityChangeObserver.html">VisibilityChangeObserver</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="destroy"><span class="type-signature"></span>destroy()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>destory</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="observer_VisibilityChangeObserver.ts.html">observer/VisibilityChangeObserver.ts</a>,
+				 <a href="observer_VisibilityChangeObserver.ts.html#sunlight-1-line-180">line 180</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="VisibilityChangeObserver.html">VisibilityChangeObserver</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="detach"><span class="type-signature"></span>detach()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>이벤트 감지 해제</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="observer_VisibilityChangeObserver.ts.html">observer/VisibilityChangeObserver.ts</a>,
+				 <a href="observer_VisibilityChangeObserver.ts.html#sunlight-1-line-165">line 165</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="VisibilityChangeObserver.html">VisibilityChangeObserver</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
             
 <hr>
 <dt>
@@ -414,7 +1347,21 @@ forExample();</pre>
 	
 
 	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="EventEmitter.html#emit">EventEmitter#emit</a>
+			</li>
+		</ul>
+	</dd>
+	
 
+    
+    <dt class="tag-overrides">Overrides:</dt>
+    <dd class="tag-overrides"><ul class="dummy"><li>
+        <a href="EventEmitter.html#emit">EventEmitter#emit</a>
+    </li></ul></dd>
     
 
     
@@ -596,7 +1543,21 @@ forExample();</pre>
 	
 
 	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="EventEmitter.html#fire">EventEmitter#fire</a>
+			</li>
+		</ul>
+	</dd>
+	
 
+    
+    <dt class="tag-overrides">Overrides:</dt>
+    <dd class="tag-overrides"><ul class="dummy"><li>
+        <a href="EventEmitter.html#fire">EventEmitter#fire</a>
+    </li></ul></dd>
     
 
     
@@ -660,6 +1621,223 @@ forExample();</pre>
     <dd>
         
 <span class="param-type"><a href="EventEmitter.html">EventEmitter</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="getStatus"><span class="type-signature"></span>getStatus()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>현재 상태를 확인하는 메소드</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="observer_VisibilityChangeObserver.ts.html">observer/VisibilityChangeObserver.ts</a>,
+				 <a href="observer_VisibilityChangeObserver.ts.html#sunlight-1-line-139">line 139</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+    <h5>Fires:</h5>
+    <ul>
+        <li><a href="VisibilityChangeObserver.html#event:VISIBILITY_EVENTS">VisibilityChangeObserver#event:VISIBILITY_EVENTS</a></li>
+    </ul>
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="VisibilityChangeObserver.html">VisibilityChangeObserver</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="isHidden"><span class="type-signature">&lt;private> </span>isHidden()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="observer_VisibilityChangeObserver.ts.html">observer/VisibilityChangeObserver.ts</a>,
+				 <a href="observer_VisibilityChangeObserver.ts.html#sunlight-1-line-129">line 129</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Boolean</span>
 
 
 
@@ -798,7 +1976,21 @@ forExample();</pre>
 	
 
 	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="EventEmitter.html#off">EventEmitter#off</a>
+			</li>
+		</ul>
+	</dd>
+	
 
+    
+    <dt class="tag-overrides">Overrides:</dt>
+    <dd class="tag-overrides"><ul class="dummy"><li>
+        <a href="EventEmitter.html#off">EventEmitter#off</a>
+    </li></ul></dd>
     
 
     
@@ -1050,7 +2242,21 @@ forExample();</pre>
 	
 
 	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="EventEmitter.html#on">EventEmitter#on</a>
+			</li>
+		</ul>
+	</dd>
+	
 
+    
+    <dt class="tag-overrides">Overrides:</dt>
+    <dd class="tag-overrides"><ul class="dummy"><li>
+        <a href="EventEmitter.html#on">EventEmitter#on</a>
+    </li></ul></dd>
     
 
     
@@ -1302,7 +2508,21 @@ forExample();</pre>
 	
 
 	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="EventEmitter.html#once">EventEmitter#once</a>
+			</li>
+		</ul>
+	</dd>
+	
 
+    
+    <dt class="tag-overrides">Overrides:</dt>
+    <dd class="tag-overrides"><ul class="dummy"><li>
+        <a href="EventEmitter.html#once">EventEmitter#once</a>
+    </li></ul></dd>
     
 
     
@@ -1378,38 +2598,139 @@ forExample();</pre>
     
 </dd>
 
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="onVisibilityChangeListener"><span class="type-signature">&lt;private> </span>onVisibilityChangeListener()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="observer_VisibilityChangeObserver.ts.html">observer/VisibilityChangeObserver.ts</a>,
+				 <a href="observer_VisibilityChangeObserver.ts.html#sunlight-1-line-119">line 119</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">void</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
         </dl>
     
 
     
-        <h3 class="subsection-title">Type Definitions</h3>
+
+    
+        <h3 class="subsection-title">Events</h3>
 
         <dl>
-                
+            
 <hr>
-<dt class="name" id=".IEvent">
-    <h4 id=".IEvent">IEvent</h4>
-
+<dt>
+    <h4 class="name" id="event:VISIBILITY_EVENTS">VISIBILITY_EVENTS</h4>
+    
     
 </dt>
 <dd>
+
     
     <div class="description">
-        <p>Event Interface</p>
+        <p>VisibilityChange Event Types</p>
     </div>
     
 
     
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">TSInterface</span>
 
+    
 
-
-            </li>
-        </ul>
+    
     
 
     
@@ -1430,8 +2751,6 @@ forExample();</pre>
         <th>Type</th>
 
         
-        <th>Argument</th>
-        
 
         
 
@@ -1444,13 +2763,13 @@ forExample();</pre>
 
         <tr>
             
-                <td class="name"><code>eventName</code></td>
+                <td class="name"><code>CHANGE</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">String</span>
 
 
 
@@ -1458,29 +2777,23 @@ forExample();</pre>
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last"><p>이벤트 명</p></td>
+            <td class="description last"><p>변경 시점</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>listener</code></td>
+                <td class="name"><code>GET_STATUS</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#TypeVoidFunction">TypeVoidFunction</a></span>
+<span class="param-type">String</span>
 
 
 
@@ -1488,50 +2801,10 @@ forExample();</pre>
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last"><p>listener function</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>context</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">any</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>context</p></td>
+            <td class="description last"><p>현재 상태값 체크</p></td>
         </tr>
 
     
@@ -1572,8 +2845,8 @@ forExample();</pre>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="event_EventEmitter.ts.html">event/EventEmitter.ts</a>,
-				 <a href="event_EventEmitter.ts.html#sunlight-1-line-12">line 12</a>
+				<a href="observer_VisibilityChangeObserver.ts.html">observer/VisibilityChangeObserver.ts</a>,
+				 <a href="observer_VisibilityChangeObserver.ts.html#sunlight-1-line-49">line 49</a>
 			</li>
 		</ul>
 	</dd>
@@ -1588,11 +2861,21 @@ forExample();</pre>
 
 
     
-</dd>
 
-            </dl>
     
 
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        </dl>
     
 </article>
 

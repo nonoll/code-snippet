@@ -31,23 +31,30 @@
 		<ul class="nav navbar-nav">
 			
 			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-browser.html">browser</a></li><li><a href="module-functions.html">functions</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="EventEmitter.html">EventEmitter</a></li><li><a href="MutationObserver.html">MutationObserver</a></li>
+					<li><a href="EventEmitter.html">EventEmitter</a></li><li><a href="MutationObserver.html">MutationObserver</a></li><li><a href="VisibilityChangeObserver.html">VisibilityChangeObserver</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="events.list.html" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="MutationObserver.html#event:MUTATION_EVENTS">MutationObserver#event:MUTATION_EVENTS</a></li>
+					<li><a href="MutationObserver.html#event:MUTATION_EVENTS">MutationObserver#event:MUTATION_EVENTS</a></li><li><a href="VisibilityChangeObserver.html#event:VISIBILITY_EVENTS">VisibilityChangeObserver#event:VISIBILITY_EVENTS</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="global.html#event">event</a></li><li><a href="global.html#noop">noop</a></li><li><a href="global.html#observer">observer</a></li><li><a href="global.html#TypeVoidFunction">TypeVoidFunction</a></li>
+					<li><a href="global.html#event">event</a></li><li><a href="global.html#observer">observer</a></li><li><a href="global.html#TypeVoidFunction">TypeVoidFunction</a></li>
 				</ul>
 			</li>
 			
@@ -101,88 +108,22 @@
 
     <section class="readme-section">
         <article><h1>@nonoll/code-snippet</h1>
+<ul>
+<li>This library was generated with <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 8.2.14.</li>
+</ul>
+<h2>Status</h2>
 <p><img src="https://img.shields.io/travis/com/nonoll/code-snippet/master.svg?style=for-the-badge" alt="TRAVIS">
 <img src="https://img.shields.io/npm/v/@nonoll/code-snippet.svg?style=for-the-badge" alt="NPM version">
-<img src="https://img.shields.io/npm/dt/@nonoll/code-snippet?style=for-the-badge" alt="NPM download">
-<img src="https://img.shields.io/npm/l/@nonoll/code-snippet?style=for-the-badge" alt="NPM license">
+<img src="https://img.shields.io/npm/dt/@nonoll/code-snippet?style=for-the-badge" alt="NPM download"></p>
+<p><img src="https://img.shields.io/npm/l/@nonoll/code-snippet?style=for-the-badge" alt="NPM license">
 <img src="https://img.shields.io/bundlephobia/min/@nonoll/code-snippet?style=for-the-badge" alt="NPM bundle size"></p>
-<p>This library was generated with <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 8.2.14.</p>
-<h2>example</h2>
-<h3>@nonoll/code-snippet/observer</h3>
-<h4>MutationObserver</h4>
-<p><a href="https://codesandbox.io/s/wonderful-johnson-9gko8?expanddevtools=1&amp;fontsize=14&amp;hidenavigation=1&amp;initialpath=%2Fobserver-MutationObserver.html&amp;module=%2Fobserver-MutationObserver.html&amp;theme=dark"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Edit @nonoll/code-snippet"></a></p>
-<pre class="prettyprint source lang-javascript"><code>import { MutationObserver, MUTATION_EVENTS } from '@nonoll/my-lib/observer';
-
-const createElement = ({ tag = 'div', id = '', style = '', value = '', text = '' }) => {
- const doc = window.document;
- const target = doc.createElement(tag);
- target.setAttribute('id', id);
- target.setAttribute('style', style);
- target.setAttribute('value', value);
- if (text) {
-   target.textContent = text;
- }
- return target;
-}
-
-const forExample = () => {
- const doc = window.document;
-
- const attachButton = createElement({ tag: 'button', text: 'observer attach' });
- const detachButton = createElement({ tag: 'button', text: 'observer detach' });
- const appendButton = createElement({ tag: 'button', text: 'append' });
-
- doc.body.appendChild(attachButton);
- doc.body.appendChild(detachButton);
- doc.body.appendChild(appendButton);
-
- attachButton.addEventListener('click', e => {
-   e.preventDefault();
-   console.log('attachButton clicked');
-   if (!observer) {
-     return;
-   }
-   observer.attach();
- });
-
- detachButton.addEventListener('click', e => {
-   e.preventDefault();
-   console.log('detachButton clicked');
-   if (!observer) {
-     return;
-   }
-   observer.detach();
- });
-
- appendButton.addEventListener('click', e => {
-   e.preventDefault();
-   console.log('appendButton clicked');
-   if (!observer) {
-     return;
-   }
-   const input = createElement({ tag: 'input', value: `${+new Date()}` });
-   target.appendChild(input);
- });
-}
-
-const target = createElement({ id: 'example_target', style: 'border: 1px solid red' });
-window.document.body.appendChild(target);
-
-const options = {
- childList: true,
- subtree: true
-};
-
-const observer = new MutationObserver({ target, options });
-observer.on(MUTATION_EVENTS.WILD_CARD, (type, values) => {
- console.log('wildCard', type, values);
-}).on(MUTATION_EVENTS.CHANGE_CHILD_LIST, values => {
- console.log('childList', values);
-});
-observer.attach();
-
-forExample();
-</code></pre></article>
+<h2>Links</h2>
+<ul>
+<li><a href="https://github.com/nonoll/code-snippet">github</a></li>
+<li><a href="https://www.npmjs.com/package/@nonoll/code-snippet">npm</a></li>
+<li><a href="https://nonoll.github.io/code-snippet/">docs</a></li>
+<li><a href="https://codesandbox.io/embed/nonollcode-snippet-9gko8?fontsize=14&amp;hidenavigation=1&amp;theme=dark">codesandbox</a></li>
+</ul></article>
     </section>
 
 
@@ -232,7 +173,7 @@ forExample();
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 0.3.7</a>
 	
-		on 2020-02-03
+		on 2020-02-04
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

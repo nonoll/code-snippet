@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>@nonoll/code-snippet Classes</title>
+	<title>@nonoll/code-snippet Module: browser</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -86,15 +86,10 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Classes</h1>
+	<h1 class="page-title">Module: browser</h1>
 <section>
 
 <header>
-    
-        <h2>
-        
-        </h2>
-        
     
 </header>
 
@@ -135,6 +130,16 @@
 
 
 	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="browser_index.ts.html">browser/index.ts</a>,
+				 <a href="browser_index.ts.html#sunlight-1-line-1">line 1</a>
+			</li>
+		</ul>
+	</dd>
+	
 
 	
 
@@ -153,19 +158,6 @@
     
 
     
-        <h3 class="subsection-title">Classes</h3>
-
-        <dl>
-            <dt><a href="EventEmitter.html">EventEmitter</a></dt>
-            <dd></dd>
-        
-            <dt><a href="MutationObserver.html">MutationObserver</a></dt>
-            <dd></dd>
-        
-            <dt><a href="VisibilityChangeObserver.html">VisibilityChangeObserver</a></dt>
-            <dd></dd>
-        </dl>
-    
 
     
 
@@ -174,17 +166,13 @@
     
 
     
-
-    
-
-    
-        <h3 class="subsection-title">Events</h3>
+        <h3 class="subsection-title">Methods</h3>
 
         <dl>
             
 <hr>
 <dt>
-    <h4 class="name" id="event:MUTATION_EVENTS">MUTATION_EVENTS</h4>
+    <h4 class="name" id=".isAOS"><span class="type-signature">&lt;static> </span>isAOS()</h4>
     
     
 </dt>
@@ -192,7 +180,7 @@
 
     
     <div class="description">
-        <p>MutationEvent Types</p>
+        <p>browser - AOS 유무 반환</p>
     </div>
     
 
@@ -201,6 +189,254 @@
     
 
     
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="browser_isAOS.ts.html">browser/isAOS.ts</a>,
+				 <a href="browser_isAOS.ts.html#sunlight-1-line-10">line 10</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Boolean</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">import { isAOS } from &#x27;@nonoll/code-snippet/browser&#x27;;
+console.log(isAOS()); // true or false</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".vendorPrefix"><span class="type-signature">&lt;static> </span>vendorPrefix()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>browser - vendorPrefix 반환</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="browser_vendorPrefix.ts.html">browser/vendorPrefix.ts</a>,
+				 <a href="browser_vendorPrefix.ts.html#sunlight-1-line-27">line 27</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
+	<dd class="tag-see">
+		<ul>
+			<li><a href="https://davidwalsh.name/vendor-prefix">https://davidwalsh.name/vendor-prefix</a></li>
+			</ul>
+	</dd>
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">IVendorPrefix</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">import { vendorPrefix } from &#x27;@nonoll/code-snippet/browser&#x27;;
+console.log(vendorPrefix()); // {dom: &quot;Webkit&quot;, lowercase: &quot;webkit&quot;, css: &quot;-webkit-&quot;, js: &quot;Webkit&quot;}</pre>
+
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        <dl>
+                
+<hr>
+<dt class="name" id=".IVendorPrefix">
+    <h4 id=".IVendorPrefix">IVendorPrefix</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>IVendorPrefix</p>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">TSInterface</span>
+
+
+
+            </li>
+        </ul>
     
 
     
@@ -233,13 +469,13 @@
 
         <tr>
             
-                <td class="name"><code>CHANGE_CHILD_LIST</code></td>
+                <td class="name"><code>dom</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">String</span>
+<span class="param-type">string</span>
 
 
 
@@ -250,20 +486,20 @@
 
             
 
-            <td class="description last"><p>childList 변경 시점</p></td>
+            <td class="description last"><p>dom 기준, prefix</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>CHANGE_SUBTREE</code></td>
+                <td class="name"><code>lowercase</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">String</span>
+<span class="param-type">string</span>
 
 
 
@@ -274,20 +510,20 @@
 
             
 
-            <td class="description last"><p>subtree 변경 시점</p></td>
+            <td class="description last"><p>소문자로 반환</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>CHANGE_ATTRIBUTES</code></td>
+                <td class="name"><code>css</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">String</span>
+<span class="param-type">string</span>
 
 
 
@@ -298,20 +534,20 @@
 
             
 
-            <td class="description last"><p>attributes 변경 시점</p></td>
+            <td class="description last"><p>css 기준, prefix</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>CHANGE_CHARACTER_DATA</code></td>
+                <td class="name"><code>js</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">String</span>
+<span class="param-type">string</span>
 
 
 
@@ -322,55 +558,7 @@
 
             
 
-            <td class="description last"><p>data 변경 시점</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>CHANGE</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>기타 변경 시점</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>WILD_CARD</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>모든 변경 시점</p></td>
+            <td class="description last"><p>js 기준, prefix</p></td>
         </tr>
 
     
@@ -411,8 +599,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="observer_MutationObserver.ts.html">observer/MutationObserver.ts</a>,
-				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-69">line 69</a>
+				<a href="browser_vendorPrefix.ts.html">browser/vendorPrefix.ts</a>,
+				 <a href="browser_vendorPrefix.ts.html#sunlight-1-line-10">line 10</a>
 			</li>
 		</ul>
 	</dd>
@@ -427,191 +615,11 @@
 
 
     
-
-    
-
-    
-
-    
-    <h5>Listeners of This Event:</h5>
-    <ul>
-        <li><a href="MutationObserver.html#on">MutationObserver#on</a></li>
-    </ul>
-    
-
-    
-
-    
-
-    
 </dd>
 
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="event:VISIBILITY_EVENTS">VISIBILITY_EVENTS</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>VisibilityChange Event Types</p>
-    </div>
+            </dl>
     
 
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    <dl>
-
-<table class="props table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>CHANGE</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>변경 시점</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>GET_STATUS</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>현재 상태값 체크</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-</dl>
-
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="observer_VisibilityChangeObserver.ts.html">observer/VisibilityChangeObserver.ts</a>,
-				 <a href="observer_VisibilityChangeObserver.ts.html#sunlight-1-line-49">line 49</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        </dl>
     
 </article>
 

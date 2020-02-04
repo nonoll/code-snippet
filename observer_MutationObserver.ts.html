@@ -31,23 +31,30 @@
 		<ul class="nav navbar-nav">
 			
 			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-browser.html">browser</a></li><li><a href="module-functions.html">functions</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="EventEmitter.html">EventEmitter</a></li><li><a href="MutationObserver.html">MutationObserver</a></li>
+					<li><a href="EventEmitter.html">EventEmitter</a></li><li><a href="MutationObserver.html">MutationObserver</a></li><li><a href="VisibilityChangeObserver.html">VisibilityChangeObserver</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="events.list.html" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="MutationObserver.html#event:MUTATION_EVENTS">MutationObserver#event:MUTATION_EVENTS</a></li>
+					<li><a href="MutationObserver.html#event:MUTATION_EVENTS">MutationObserver#event:MUTATION_EVENTS</a></li><li><a href="VisibilityChangeObserver.html#event:VISIBILITY_EVENTS">VisibilityChangeObserver#event:VISIBILITY_EVENTS</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="global.html#event">event</a></li><li><a href="global.html#noop">noop</a></li><li><a href="global.html#observer">observer</a></li><li><a href="global.html#TypeVoidFunction">TypeVoidFunction</a></li>
+					<li><a href="global.html#event">event</a></li><li><a href="global.html#observer">observer</a></li><li><a href="global.html#TypeVoidFunction">TypeVoidFunction</a></li>
 				</ul>
 			</li>
 			
@@ -84,10 +91,9 @@
 <section>
     <article>
         <pre
-            class="sunlight-highlight-javascript linenums">import { TypeVoidFunction } from '../types/voidFunction';
-import { EventEmitter } from '../event/EventEmitter';
-import { debounce as _debounce } from '../functions/debounce';
-import { noop } from '../functions/noop';
+            class="sunlight-highlight-javascript linenums">import { TypeVoidFunction } from '../types';
+import { EventEmitter } from '../event';
+import { debounce as _debounce, noop } from '../functions';
 
 /**
  * pure MutationObserver init options
@@ -214,6 +220,18 @@ class PureMutationObserver {
  * @see https://developer.mozilla.org/ko/docs/Web/API/MutationObserver
  * @see https://github.com/webmodules/mutation-observer
  * @see https://developer.mozilla.org/ko/docs/Web/API/MutationObserver#MutationObserverInit
+ * @param {Partial&lt;IMutationObserverExtOption>} option
+ * @param {HTMLElement} [option.target=null] target
+ * @param {Number} [option.debounce=300] debounce
+ * @param {Function|null} [option.callback={@link noop}] callback function
+ * @param {Object} [option.options={}]
+ * @param {Boolean} [option.options.childList]
+ * @param {Boolean} [option.options.attributes]
+ * @param {Boolean} [option.options.characterData]
+ * @param {Boolean} [option.options.subtree]
+ * @param {Boolean} [option.options.attributeOldValue]
+ * @param {Boolean} [option.options.characterDataOldValue]
+ * @param {Array.&lt;String>} [option.options.attributeFilter] [MDN attributeFilter]{@link https://developer.mozilla.org/en-US/docs/Web/API/MutationObserverInit/attributeFilter}
  * @example
 import { MutationObserver, MUTATION_EVENTS } from '@nonoll/code-snippet/observer';
 
@@ -229,8 +247,33 @@ const createElement = ({ tag = 'div', id = '', style = '', value = '', text = ''
   return target;
 }
 
+let observer;
+
 const forExample = () => {
+  if (observer) {
+    console.log('already example');
+    return;
+  }
+
   const doc = window.document;
+
+  const target = createElement({ id: 'example_target', style: 'border: 1px solid red' });
+  doc.body.appendChild(target);
+
+  const options = {
+    childList: true,
+    subtree: true
+  };
+
+  observer = new MutationObserver({ target, options });
+
+  observer.on(MUTATION_EVENTS.WILD_CARD, (type, values) => {
+    console.log('wildCard', type, values);
+  }).on(MUTATION_EVENTS.CHANGE_CHILD_LIST, values => {
+    console.log('childList', values);
+  });
+
+  observer.attach();
 
   const attachButton = createElement({ tag: 'button', text: 'observer attach' });
   const detachButton = createElement({ tag: 'button', text: 'observer detach' });
@@ -269,37 +312,7 @@ const forExample = () => {
   });
 }
 
-const target = createElement({ id: 'example_target', style: 'border: 1px solid red' });
-window.document.body.appendChild(target);
-
-const options = {
-  childList: true,
-  subtree: true
-};
-
-const observer = new MutationObserver({ target, options });
-
-observer.on(MUTATION_EVENTS.WILD_CARD, (type, values) => {
-  console.log('wildCard', type, values);
-}).on(MUTATION_EVENTS.CHANGE_CHILD_LIST, values => {
-  console.log('childList', values);
-});
-
-observer.attach();
-
 forExample();
- * @param {Partial&lt;IMutationObserverExtOption>} option
- * @param {HTMLElement} [option.target=null] target
- * @param {Number} [option.debounce=300] debounce
- * @param {Function|null} [option.callback={@link noop}] callback function
- * @param {Object} [option.options={}]
- * @param {Boolean} [option.options.childList]
- * @param {Boolean} [option.options.attributes]
- * @param {Boolean} [option.options.characterData]
- * @param {Boolean} [option.options.subtree]
- * @param {Boolean} [option.options.attributeOldValue]
- * @param {Boolean} [option.options.characterDataOldValue]
- * @param {Array.&lt;String>} [option.options.attributeFilter] [MDN attributeFilter]{@link https://developer.mozilla.org/en-US/docs/Web/API/MutationObserverInit/attributeFilter}
  */
 export class MutationObserver extends EventEmitter {
   private target: HTMLElement;
@@ -469,7 +482,7 @@ export class MutationObserver extends EventEmitter {
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 0.3.7</a>
 	
-		on 2020-02-03
+		on 2020-02-04
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

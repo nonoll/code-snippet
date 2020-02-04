@@ -31,23 +31,30 @@
 		<ul class="nav navbar-nav">
 			
 			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-browser.html">browser</a></li><li><a href="module-functions.html">functions</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="EventEmitter.html">EventEmitter</a></li><li><a href="MutationObserver.html">MutationObserver</a></li>
+					<li><a href="EventEmitter.html">EventEmitter</a></li><li><a href="MutationObserver.html">MutationObserver</a></li><li><a href="VisibilityChangeObserver.html">VisibilityChangeObserver</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="events.list.html" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="MutationObserver.html#event:MUTATION_EVENTS">MutationObserver#event:MUTATION_EVENTS</a></li>
+					<li><a href="MutationObserver.html#event:MUTATION_EVENTS">MutationObserver#event:MUTATION_EVENTS</a></li><li><a href="VisibilityChangeObserver.html#event:VISIBILITY_EVENTS">VisibilityChangeObserver#event:VISIBILITY_EVENTS</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="global.html#event">event</a></li><li><a href="global.html#noop">noop</a></li><li><a href="global.html#observer">observer</a></li><li><a href="global.html#TypeVoidFunction">TypeVoidFunction</a></li>
+					<li><a href="global.html#event">event</a></li><li><a href="global.html#observer">observer</a></li><li><a href="global.html#TypeVoidFunction">TypeVoidFunction</a></li>
 				</ul>
 			</li>
 			
@@ -306,7 +313,7 @@
             
                 <td class="default">
                 
-                    <a href="global.html#noop">noop</a>
+                    <a href="module-functions.html">noop</a>
                 
                 </td>
             
@@ -669,7 +676,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="observer_MutationObserver.ts.html">observer/MutationObserver.ts</a>,
-				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-115">line 115</a>
+				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-114">line 114</a>
 			</li>
 		</ul>
 	</dd>
@@ -723,8 +730,33 @@ const createElement = ({ tag = &#x27;div&#x27;, id = &#x27;&#x27;, style = &#x27
   return target;
 }
 
+let observer;
+
 const forExample = () =&gt; {
+  if (observer) {
+    console.log(&#x27;already example&#x27;);
+    return;
+  }
+
   const doc = window.document;
+
+  const target = createElement({ id: &#x27;example_target&#x27;, style: &#x27;border: 1px solid red&#x27; });
+  doc.body.appendChild(target);
+
+  const options = {
+    childList: true,
+    subtree: true
+  };
+
+  observer = new MutationObserver({ target, options });
+
+  observer.on(MUTATION_EVENTS.WILD_CARD, (type, values) =&gt; {
+    console.log(&#x27;wildCard&#x27;, type, values);
+  }).on(MUTATION_EVENTS.CHANGE_CHILD_LIST, values =&gt; {
+    console.log(&#x27;childList&#x27;, values);
+  });
+
+  observer.attach();
 
   const attachButton = createElement({ tag: &#x27;button&#x27;, text: &#x27;observer attach&#x27; });
   const detachButton = createElement({ tag: &#x27;button&#x27;, text: &#x27;observer detach&#x27; });
@@ -762,24 +794,6 @@ const forExample = () =&gt; {
     target.appendChild(input);
   });
 }
-
-const target = createElement({ id: &#x27;example_target&#x27;, style: &#x27;border: 1px solid red&#x27; });
-window.document.body.appendChild(target);
-
-const options = {
-  childList: true,
-  subtree: true
-};
-
-const observer = new MutationObserver({ target, options });
-
-observer.on(MUTATION_EVENTS.WILD_CARD, (type, values) =&gt; {
-  console.log(&#x27;wildCard&#x27;, type, values);
-}).on(MUTATION_EVENTS.CHANGE_CHILD_LIST, values =&gt; {
-  console.log(&#x27;childList&#x27;, values);
-});
-
-observer.attach();
 
 forExample();</pre>
 
@@ -875,7 +889,7 @@ forExample();</pre>
 		<ul class="dummy">
 			<li>
 				<a href="observer_MutationObserver.ts.html">observer/MutationObserver.ts</a>,
-				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-248">line 248</a>
+				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-254">line 254</a>
 			</li>
 		</ul>
 	</dd>
@@ -989,7 +1003,7 @@ forExample();</pre>
 		<ul class="dummy">
 			<li>
 				<a href="observer_MutationObserver.ts.html">observer/MutationObserver.ts</a>,
-				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-335">line 335</a>
+				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-341">line 341</a>
 			</li>
 		</ul>
 	</dd>
@@ -1103,7 +1117,7 @@ forExample();</pre>
 		<ul class="dummy">
 			<li>
 				<a href="observer_MutationObserver.ts.html">observer/MutationObserver.ts</a>,
-				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-321">line 321</a>
+				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-327">line 327</a>
 			</li>
 		</ul>
 	</dd>
@@ -1162,7 +1176,7 @@ forExample();</pre>
             
 <hr>
 <dt>
-    <h4 class="name" id="emit"><span class="type-signature"></span>emit(eventName, values)</h4>
+    <h4 class="name" id="emit"><span class="type-signature">&lt;protected> </span>emit(eventName, values)</h4>
     
     
 </dt>
@@ -1325,7 +1339,7 @@ forExample();</pre>
 		<ul class="dummy">
 			<li>
 				<a href="event_EventEmitter.ts.html">event/EventEmitter.ts</a>,
-				 <a href="event_EventEmitter.ts.html#sunlight-1-line-84">line 84</a>
+				 <a href="event_EventEmitter.ts.html#sunlight-1-line-154">line 154</a>
 			</li>
 		</ul>
 	</dd>
@@ -1378,7 +1392,7 @@ forExample();</pre>
             
 <hr>
 <dt>
-    <h4 class="name" id="fire"><span class="type-signature"></span>fire(eventName, values)</h4>
+    <h4 class="name" id="fire"><span class="type-signature">&lt;protected> </span>fire(eventName, values)</h4>
     
     
 </dt>
@@ -1409,8 +1423,6 @@ forExample();</pre>
         <th>Type</th>
 
         
-        <th>Argument</th>
-        
 
         
 
@@ -1437,14 +1449,6 @@ forExample();</pre>
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
 
@@ -1461,23 +1465,13 @@ forExample();</pre>
             <td class="type">
             
                 
-<span class="param-type">Array.&lt;any></span>
+<span class="param-type">any</span>
 
 
 
             
             </td>
 
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                    &lt;repeatable><br>
-                
-                </td>
             
 
             
@@ -1541,7 +1535,7 @@ forExample();</pre>
 		<ul class="dummy">
 			<li>
 				<a href="event_EventEmitter.ts.html">event/EventEmitter.ts</a>,
-				 <a href="event_EventEmitter.ts.html#sunlight-1-line-100">line 100</a>
+				 <a href="event_EventEmitter.ts.html#sunlight-1-line-170">line 170</a>
 			</li>
 		</ul>
 	</dd>
@@ -1594,7 +1588,7 @@ forExample();</pre>
             
 <hr>
 <dt>
-    <h4 class="name" id="off"><span class="type-signature"></span>off(eventName [, listener])</h4>
+    <h4 class="name" id="off"><span class="type-signature">&lt;protected> </span>off(eventName [, listener])</h4>
     
     
 </dt>
@@ -1757,7 +1751,7 @@ forExample();</pre>
 		<ul class="dummy">
 			<li>
 				<a href="event_EventEmitter.ts.html">event/EventEmitter.ts</a>,
-				 <a href="event_EventEmitter.ts.html#sunlight-1-line-49">line 49</a>
+				 <a href="event_EventEmitter.ts.html#sunlight-1-line-119">line 119</a>
 			</li>
 		</ul>
 	</dd>
@@ -1810,7 +1804,7 @@ forExample();</pre>
             
 <hr>
 <dt>
-    <h4 class="name" id="on"><span class="type-signature"></span>on(eventName [, listener] [, context])</h4>
+    <h4 class="name" id="on"><span class="type-signature">&lt;protected> </span>on(eventName [, listener] [, context])</h4>
     
     
 </dt>
@@ -1921,7 +1915,7 @@ forExample();</pre>
             
                 <td class="default">
                 
-                    <a href="global.html#noop">noop</a>
+                    <a href="module-functions.html">noop</a>
                 
                 </td>
             
@@ -2023,7 +2017,7 @@ forExample();</pre>
 		<ul class="dummy">
 			<li>
 				<a href="observer_MutationObserver.ts.html">observer/MutationObserver.ts</a>,
-				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-263">line 263</a>
+				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-269">line 269</a>
 			</li>
 		</ul>
 	</dd>
@@ -2081,7 +2075,7 @@ forExample();</pre>
             
 <hr>
 <dt>
-    <h4 class="name" id="once"><span class="type-signature"></span>once(eventName [, listener] [, context])</h4>
+    <h4 class="name" id="once"><span class="type-signature">&lt;protected> </span>once(eventName [, listener] [, context])</h4>
     
     
 </dt>
@@ -2192,7 +2186,7 @@ forExample();</pre>
             
                 <td class="default">
                 
-                    <a href="global.html#noop">noop</a>
+                    <a href="module-functions.html">noop</a>
                 
                 </td>
             
@@ -2294,7 +2288,7 @@ forExample();</pre>
 		<ul class="dummy">
 			<li>
 				<a href="event_EventEmitter.ts.html">event/EventEmitter.ts</a>,
-				 <a href="event_EventEmitter.ts.html#sunlight-1-line-68">line 68</a>
+				 <a href="event_EventEmitter.ts.html#sunlight-1-line-138">line 138</a>
 			</li>
 		</ul>
 	</dd>
@@ -2452,7 +2446,7 @@ forExample();</pre>
 		<ul class="dummy">
 			<li>
 				<a href="observer_MutationObserver.ts.html">observer/MutationObserver.ts</a>,
-				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-275">line 275</a>
+				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-281">line 281</a>
 			</li>
 		</ul>
 	</dd>
@@ -2733,7 +2727,7 @@ forExample();</pre>
 		<ul class="dummy">
 			<li>
 				<a href="observer_MutationObserver.ts.html">observer/MutationObserver.ts</a>,
-				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-38">line 38</a>
+				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-37">line 37</a>
 			</li>
 		</ul>
 	</dd>
@@ -3069,7 +3063,7 @@ forExample();</pre>
 		<ul class="dummy">
 			<li>
 				<a href="observer_MutationObserver.ts.html">observer/MutationObserver.ts</a>,
-				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-19">line 19</a>
+				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-18">line 18</a>
 			</li>
 		</ul>
 	</dd>
@@ -3278,7 +3272,7 @@ forExample();</pre>
 		<ul class="dummy">
 			<li>
 				<a href="observer_MutationObserver.ts.html">observer/MutationObserver.ts</a>,
-				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-46">line 46</a>
+				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-45">line 45</a>
 			</li>
 		</ul>
 	</dd>
@@ -3540,7 +3534,7 @@ forExample();</pre>
 		<ul class="dummy">
 			<li>
 				<a href="observer_MutationObserver.ts.html">observer/MutationObserver.ts</a>,
-				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-70">line 70</a>
+				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-69">line 69</a>
 			</li>
 		</ul>
 	</dd>
@@ -3624,7 +3618,7 @@ forExample();</pre>
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 0.3.7</a>
 	
-		on 2020-02-03
+		on 2020-02-04
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
