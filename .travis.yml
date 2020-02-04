@@ -15,7 +15,9 @@ notifications:
   email:
     recipients:
       - hkroh.nonoll@gmail.com
-    on_success: always
+    # always / never / change
+    # see: https://docs.travis-ci.com/user/notifications/#changing-notification-frequency
+    on_success: never
     on_failure: always
 
 # Job Lifecycle
@@ -33,7 +35,6 @@ notifications:
 # 12. after_script
 # see: https://docs.travis-ci.com/user/job-lifecycle/#the-job-lifecycle
 
-
 install:
   - npm install
 
@@ -41,6 +42,11 @@ script:
   - npm run build
   - npm run jsdoc
 
+branches:
+  only:
+    - master
+    # for release, tags
+    - /^v[0-9]+\.[0-9]+\.[0-9]+$/
 
 deploy:
   # 배포 설정 - npm module
@@ -52,9 +58,13 @@ deploy:
     src: ./dist/code-snippet
     access: public
     on:
-      tags: true
+      # tags: true
+      # repo: nonoll/code-snippet
+      # branch: master
       repo: nonoll/code-snippet
-      branch: master
+      all_branches: true
+      # see: https://docs.travis-ci.com/user/environment-variables/#default-environment-variables
+      condition: $TRAVIS_TAG =~ ^v[0-9]+\.[0-9]+\.[0-9]+$
 
   # 배포 설정 - github page
   - provider: pages
