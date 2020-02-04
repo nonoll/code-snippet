@@ -21,7 +21,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "test:travis": "ng test --watch=false --code-coverage --browsers=ChromeHeadless",
+    "test:travis": "ng test --watch=false --code-coverage=true --browsers=ChromeHeadless",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "jsdoc": "rm -rf ./docs && jsdoc -c jsdoc.json -p",
