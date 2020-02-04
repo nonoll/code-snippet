@@ -3,7 +3,7 @@ language: node_js
 os: linux
 
 node_js:
-- "stable"
+- "10"
 
 cache:
   directories:
@@ -48,7 +48,7 @@ services:
 script:
   - npm run build
   - npm run jsdoc
-  - npm run test
+  - npm run test:travis
 
 branches:
   only:
