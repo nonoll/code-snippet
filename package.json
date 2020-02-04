@@ -21,6 +21,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
+    "test:travis": "./node_modules/.bin/karma start --browsers Firefox --single-run",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "jsdoc": "rm -rf ./docs && jsdoc -c jsdoc.json -p",
