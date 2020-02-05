@@ -9,7 +9,7 @@ cache:
   directories:
     - node_modules
 
-# Set DISPLAY for Xvfb
+# for xvfb
 env:
   - DISPLAY=:99.0
 
@@ -43,13 +43,14 @@ install:
   - npm install
   - npm audit fix
 
+# for travis:test
 services:
   - xvfb
 
 script:
-  - npm run build
-  - npm run jsdoc
-  - npm run test:travis
+  - npm run travis:build
+  - npm run travis:jsdoc
+  - npm run travis:test
 
 branches:
   only:
@@ -58,7 +59,7 @@ branches:
     - /^v[0-9]+\.[0-9]+\.[0-9]+$/
 
 after_success:
-  - npm run codecov
+  - npm run travis:codecov
 
 deploy:
   # 배포 설정 - npm module
