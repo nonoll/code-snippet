@@ -5,14 +5,15 @@ import { debounce as _debounce, noop } from '../functions';
 /**
  * pure MutationObserver init options
  * @memberof MutationObserver
- * @typedef
- * @property - target 의 하위 요소 추가 / 삭제 감지 유무
- * @property - target 의 속성 변경 감지 유무
- * @property - target 의 데이터 변경 감지 유무
- * @property - target 의 하위 요소 변경 사항 감지 유무
- * @property - target 의 ...
- * @property - target 의 ...
- * @property - target 의 ... [MDN attributeFilter]{@link https://developer.mozilla.org/en-US/docs/Web/API/MutationObserverInit/attributeFilter}
+ * @alias IMutationObserverInit
+ * @interface
+ * @property {Boolean} [childList] - target 의 하위 요소 추가 / 삭제 감지 유무
+ * @property {Boolean} [attributes] - target 의 속성 변경 감지 유무
+ * @property {Boolean} [characterData] - target 의 데이터 변경 감지 유무
+ * @property {Boolean} [subtree] - target 의 하위 요소 변경 사항 감지 유무
+ * @property {Boolean} [attributeOldValue] - attributeOldValue TBD
+ * @property {Boolean} [characterDataOldValue] - TBD
+ * @property {Array.<String>} [attributeFilter] - TBD [MDN attributeFilter]{@link https://developer.mozilla.org/en-US/docs/Web/API/MutationObserverInit/attributeFilter}
  * @see https://developer.mozilla.org/ko/docs/Web/API/MutationObserver#MutationObserverInit
  */
 interface IMutationObserverInit {
@@ -28,7 +29,8 @@ interface IMutationObserverInit {
 /**
  * MutationObserver init options
  * @memberof MutationObserver
- * @typedef
+ * @alias IMutationObserverExtOption
+ * @interface
  * @property - 감지할 element
  * @property - 이벤트 debounce 값
  * @property - 이벤트 callback
@@ -287,25 +289,25 @@ export class MutationObserver extends EventEmitter {
         case MutationRecordType.childList:
           this.callback(values);
           this.emit(MUTATION_EVENTS.CHANGE_CHILD_LIST, values);
-          this.emit(MUTATION_EVENTS.WILD_CARD, type, values);
+          this.emit(MUTATION_EVENTS.WILD_CARD, MUTATION_EVENTS.CHANGE_CHILD_LIST, values);
           break;
 
         case MutationRecordType.subtree:
           this.callback(values);
           this.emit(MUTATION_EVENTS.CHANGE_SUBTREE, values);
-          this.emit(MUTATION_EVENTS.WILD_CARD, type, values);
+          this.emit(MUTATION_EVENTS.WILD_CARD, MUTATION_EVENTS.CHANGE_SUBTREE, values);
           break;
 
         case MutationRecordType.attributes:
           this.callback(values);
           this.emit(MUTATION_EVENTS.CHANGE_ATTRIBUTES, values);
-          this.emit(MUTATION_EVENTS.WILD_CARD, type, values);
+          this.emit(MUTATION_EVENTS.WILD_CARD, MUTATION_EVENTS.CHANGE_ATTRIBUTES, values);
           break;
 
         case MutationRecordType.characterData:
           this.callback(values);
           this.emit(MUTATION_EVENTS.CHANGE_CHARACTER_DATA, values);
-          this.emit(MUTATION_EVENTS.WILD_CARD, type, values);
+          this.emit(MUTATION_EVENTS.WILD_CARD, MUTATION_EVENTS.CHANGE_CHARACTER_DATA, values);
           break;
 
         default:

@@ -3,6 +3,20 @@ import { EventEmitter } from '../event';
 const doc = window.document as any;
 
 /**
+ * Visibility Status 반환 규격
+ * @memberof VisibilityChangeObserver
+ * @alias IVisibilityStatus
+ * @interface
+ * @property {Boolean} hidden - hidden 상태 유무
+ * @property {Boolean} show - show 상태 유무
+ * @see VisibilityChangeObserver#getStatus
+ */
+interface IVisibilityStatus {
+  isHidden: boolean;
+  isShow: boolean;
+}
+
+/**
  * 실행된 browser 기준으로, visibilityChange event 에 맞는 vendorPrefix 반환
  * @memberof VisibilityChangeObserver
  * @export
@@ -66,10 +80,85 @@ export enum VISIBILITY_EVENTS {
 
 /**
  * browser 의 visibility 변화를 감지
+  <iframe
+    src="https://codesandbox.io/embed/nonollcode-snippet-9gko8?autoresize=1&expanddevtools=1&fontsize=14&hidenavigation=1&initialpath=%2Fobserver-VisibilityChange.html&module=%2Fobserver-VisibilityChange.html&theme=dark"
+    style="width:100%; height:500px; border:1px solid black; border-radius: 4px; overflow:hidden;"
+    title="@nonoll/code-snippet"
+    allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+    sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+  ></iframe>
  * @export
  * @class VisibilityChangeObserver
  * @alias observer/VisibilityChangeObserver
  * @extends {EventEmitter}
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
+ * @see https://caniuse.com/#search=visibilityState
+ * @throws {Error} browser 에서 지원하지 못하는 경우 - throw new Error('VisibilityChange 지원되지 않는 브라우저입니다.');
+ * @example
+import { VisibilityChangeObserver, VISIBILITY_EVENTS } from '@nonoll/code-snippet/observer';
+
+const createElement = ({ tag = 'div', id = '', style = '', value = '', text = '' }) => {
+  const doc = window.document;
+  const target = doc.createElement(tag);
+  target.setAttribute('id', id);
+  target.setAttribute('style', style);
+  target.setAttribute('value', value);
+  if (text) {
+    target.textContent = text;
+  }
+  return target;
+}
+
+let observer;
+
+const forExample = () => {
+  if (observer) {
+    console.log('already example');
+    return;
+  }
+
+  const doc = window.document;
+
+  observer = new VisibilityChangeObserver();
+
+  observer.on(VISIBILITY_EVENTS.CHANGE, ({ isHidden, isShow }) => {
+    console.log('change', isHidden, isShow);
+  });
+
+  observer.attach();
+  observer.emit(VISIBILITY_EVENTS.GET_STATUS);
+
+  const statusButton = createElement({ tag: 'button', text: 'status' });
+  const openButton = createElement({ tag: 'button', text: 'window open' });
+
+  doc.body.appendChild(statusButton);
+  doc.body.appendChild(openButton);
+
+  statusButton.addEventListener('click', e => {
+    e.preventDefault();
+    console.log('statusButton clicked');
+    if (!observer) {
+      return;
+    }
+    // observer.emit(VISIBILITY_EVENTS.GET_STATUS);
+    const { isHidden, isShow } = observer.getStatus();
+    console.log('getStatus', isHidden, isShow);
+  });
+
+  openButton.addEventListener('click', e => {
+    e.preventDefault();
+    console.log('openButton clicked');
+    if (!observer) {
+      return;
+    }
+    const browser = window.open('https://nonoll.github.io/code-snippet/');
+    if (!browser) {
+      console.error('팝업이 차단되어 있습니다.');
+    }
+  });
+}
+
+forExample();
  */
 export class VisibilityChangeObserver extends EventEmitter {
   constructor() {
@@ -115,6 +204,8 @@ export class VisibilityChangeObserver extends EventEmitter {
   /**
    * @private
    * @memberof VisibilityChangeObserver
+   * @see IVisibilityStatus
+   * @fires VisibilityChangeObserver#VISIBILITY_EVENTS
    */
   private onVisibilityChangeListener(): void {
     const isHidden = this.isHidden();
@@ -131,15 +222,15 @@ export class VisibilityChangeObserver extends EventEmitter {
   }
 
   /**
-   * 현재 상태를 확인하는 메소드
-   * @returns {VisibilityChangeObserver}
+   * 현재 상태를 반환
+   * @returns {IVisibilityStatus}
    * @memberof VisibilityChangeObserver
-   * @fires VisibilityChangeObserver#VISIBILITY_EVENTS
    */
-  public getStatus(): VisibilityChangeObserver {
+  public getStatus(): IVisibilityStatus {
     this.emit(VISIBILITY_EVENTS.GET_STATUS);
 
-    return this;
+    const isHidden = this.isHidden();
+    return { isHidden, isShow: !isHidden };
   }
 
   /**

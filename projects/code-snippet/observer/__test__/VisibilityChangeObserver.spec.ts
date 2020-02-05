@@ -23,6 +23,6 @@ describe('# @nonoll/code-snippet/observer/VisibilityChangeObserver Spec Test', (
       expect(isShow).toEqual(toEqual.isShow);
     });
     observer.attach();
-    observer.getStatus();
+    observer.emit(VISIBILITY_EVENTS.GET_STATUS);
   });
 });

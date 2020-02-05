@@ -1,8 +1,6 @@
 /**
  * empty function
- * @alias noop
  * @memberof module:functions
- * @function
- * @returns {Function}
+ * @alias noop
  */
 export function noop() {}
