@@ -21,7 +21,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "test:travis": "ng test -- --watch=false --code-coverage=true --browsers=ChromeHeadless && npm run coveralls",
+    "test:travis": "ng test --watch=false --code-coverage=true --browsers=ChromeHeadless",
     "coveralls": "cat ./coverage/*/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "lint": "ng lint",
     "e2e": "ng e2e",

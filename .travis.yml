@@ -58,7 +58,7 @@ branches:
     - /^v[0-9]+\.[0-9]+\.[0-9]+$/
 
 after_success:
-  - ./gradlew cobertura coveralls
+  - npm run coveralls
 
 deploy:
   # 배포 설정 - npm module
