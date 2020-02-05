@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>@nonoll/code-snippet Source: browser/vendorPrefix.ts</title>
+	<title>@nonoll/code-snippet Interface: IMutationObserverExtOption</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -88,57 +88,198 @@
 <div class="row">
 
 	
-	<div class="col-md-12">
+	<div class="col-md-8">
 	
 		<div id="main">
 			
 
-		<h1 class="page-title">Source: browser/vendorPrefix.ts</h1>
-    
+	<h1 class="page-title">Interface: IMutationObserverExtOption</h1>
 <section>
-    <article>
-        <pre
-            class="sunlight-highlight-javascript linenums">/**
- * IVendorPrefix
- * @memberof module:browser
- * @typedef
- * @property - dom 기준, prefix
- * @property - 소문자로 반환
- * @property - css 기준, prefix
- * @property - js 기준, prefix
- */
-interface IVendorPrefix {
-  dom: string;
-  lowercase: string;
-  css: string;
-  js: string;
-}
 
-/**
- * browser - vendorPrefix 반환
- * @memberof module:browser
- * @see https://davidwalsh.name/vendor-prefix
- * @function
- * @return {IVendorPrefix}
- * @example
-import { vendorPrefix } from '@nonoll/code-snippet/browser';
-console.log(vendorPrefix()); // {dom: "Webkit", lowercase: "webkit", css: "-webkit-", js: "Webkit"}
- */
-export const vendorPrefix = (): IVendorPrefix => {
-  const styles = window.getComputedStyle(window.document.documentElement, '');
-  const pre = (Array.from(styles).join('').match(/-(moz|webkit|ms)-/) || ((styles as any).OLink === '' &amp;&amp; ['', 'o']))[1];
-  const dom = ('Webkit|Moz|MS|O').match(new RegExp(`(${pre})`, 'i'))[1];
-  return {
-    dom,
-    lowercase: pre,
-    css: `-${pre}-`,
-    js: pre[0].toUpperCase() + pre.substr(1)
-  };
-};
-</pre>
-    </article>
+<header>
+    
+        <h2>
+            <span class="ancestors"><a href="MutationObserver.html">MutationObserver</a></span>
+        
+        IMutationObserverExtOption
+        </h2>
+        
+    
+</header>
+
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>MutationObserver init options</p></div>
+        
+
+        
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>감지할 element</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>이벤트 debounce 값</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>이벤트 callback</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>세부 MutationObserver options</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="observer_MutationObserver.ts.html">observer/MutationObserver.ts</a>,
+				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-39">line 39</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
 </section>
-
 
 
 
@@ -148,6 +289,10 @@ export const vendorPrefix = (): IVendorPrefix => {
 
 	<div class="clearfix"></div>
 
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
 	
 
 </div>
