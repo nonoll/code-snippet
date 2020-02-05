@@ -41,6 +41,7 @@ notifications:
 
 install:
   - npm install
+  - npm audit fix
 
 services:
   - xvfb
@@ -55,6 +56,9 @@ branches:
     - master
     # for release, tags
     - /^v[0-9]+\.[0-9]+\.[0-9]+$/
+
+after_success:
+  - ./gradlew cobertura coveralls
 
 deploy:
   # 배포 설정 - npm module
