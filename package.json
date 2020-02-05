@@ -21,12 +21,15 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "test:travis": "ng test --watch=false --code-coverage=true --browsers=ChromeHeadless",
-    "codecov": "codecov",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "jsdoc": "rm -rf ./docs && jsdoc -c jsdoc.json -p",
-    "dev-env": "git-hooks/install_hooks.sh"
+    "dev:env": "git-hooks/install_hooks.sh",
+    "watch:jsdoc": "nodemon --exec 'jsdoc -c jsdoc.json' --watch ./projects/* -e js,ts,md",
+    "watch:test": "ng test --code-coverage=true --browsers=ChromeHeadless",
+    "travis:build": "ng build",
+    "travis:jsdoc": "rm -rf ./docs && jsdoc -c jsdoc.json",
+    "travis:test": "ng test --watch=false --code-coverage=true --browsers=ChromeHeadless",
+    "travis:codecov": "codecov"
   },
   "private": true,
   "dependencies": {
@@ -63,6 +66,7 @@
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
     "ng-packagr": "^5.4.0",
+    "nodemon": "^2.0.2",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tsickle": "^0.37.0",
