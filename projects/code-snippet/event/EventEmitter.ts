@@ -104,7 +104,7 @@ export class EventEmitter {
    * @returns {EventEmitter}
    * @memberof EventEmitter
    */
-  on(eventName: string, listener: TypeVoidFunction = noop, context?: any): EventEmitter {
+  on(eventName: string, /* istanbul ignore next: for noop */ listener: TypeVoidFunction = noop, context?: any): EventEmitter {
     this.events.push({ eventName, listener, context });
     return this;
   }
@@ -116,12 +116,12 @@ export class EventEmitter {
    * @returns {EventEmitter}
    * @memberof EventEmitter
    */
-  off(eventName: string, listener?: TypeVoidFunction): EventEmitter {
+  off(eventName: string, listener?: TypeVoidFunction): EventEmitter | false {
     // tslint:disable-next-line: max-line-length
     const matched = this.events.findIndex(regEvent => regEvent.eventName === eventName && (listener ? regEvent.listener === listener : true));
     // tslint:disable-next-line: no-bitwise
     if (!~matched) {
-      return;
+      return false;
     }
     this.events.splice(matched, 1);
     return this;
@@ -135,7 +135,7 @@ export class EventEmitter {
    * @returns {EventEmitter}
    * @memberof EventEmitter
    */
-  once(eventName: string, listener: TypeVoidFunction = noop, context?: any): EventEmitter {
+  once(eventName: string, /* istanbul ignore next: for noop */ listener: TypeVoidFunction = noop, context?: any): EventEmitter {
     const onceWrapper = (...values: any) => {
       this.off(eventName, onceWrapper);
       listener.apply(context || listener, values);

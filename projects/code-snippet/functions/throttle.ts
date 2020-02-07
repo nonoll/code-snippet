@@ -34,7 +34,7 @@ const forExample = () => {
 
 forExample();
  */
-export const throttle = (fn: TypeVoidFunction, delay: number = 0): TypeVoidFunction => {
+export const throttle = (fn: TypeVoidFunction, /* istanbul ignore next */ delay: number = 0): TypeVoidFunction => {
   const caller = (args: any[]) => {
     fn.apply(null, args);
     base = +new Date();
@@ -52,10 +52,12 @@ export const throttle = (fn: TypeVoidFunction, delay: number = 0): TypeVoidFunct
     }
 
     stamp = +new Date();
+    /* istanbul ignore next */
     base = base || stamp;
 
     if ((stamp - base) >= delay) {
+      /* istanbul ignore next */
       caller(args);
     }
-  }
-}
+  };
+};

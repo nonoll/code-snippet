@@ -237,6 +237,7 @@ export class MutationObserver extends EventEmitter {
     this.target = target;
     this.options = Object.assign({}, defaultOptions, options);
     this.onMutationObserverListener = this.onMutationObserverListener.bind(this);
+    /* istanbul ignore next: for noop */
     this.callback = callback || noop;
 
     if (debounce) {
@@ -268,7 +269,7 @@ export class MutationObserver extends EventEmitter {
    * @listens MutationObserver#MUTATION_EVENTS
    * @returns {MutationObserver}
    */
-  public on(eventName: string, listener: TypeVoidFunction = noop, context?: any): MutationObserver {
+  public on(eventName: string, /* istanbul ignore next: for noop */ listener: TypeVoidFunction = noop, context?: any): MutationObserver {
     super.on(eventName, listener, context);
     return this;
   }
@@ -310,6 +311,7 @@ export class MutationObserver extends EventEmitter {
           this.emit(MUTATION_EVENTS.WILD_CARD, MUTATION_EVENTS.CHANGE_CHARACTER_DATA, values);
           break;
 
+        /* istanbul ignore next: for default */
         default:
           this.callback(values);
           this.emit(MUTATION_EVENTS.CHANGE, type, values);

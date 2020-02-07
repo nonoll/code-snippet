@@ -76,6 +76,16 @@ describe('# @nonoll/code-snippet/event/EventEmitter Spec Test', () => {
     resResolve(eventCount);
   });
 
+  it('# off 시에, 등록되지 않은 이벤트를 해제하면 false 를 반환한다.', () => {
+    const ee = new EventEmitter();
+    const registEvent = 'EVENT_OFF_REGIST';
+    const notRegistEvent = 'EVENT_OFF_NOT_REGIST';
+    ee.on(registEvent);
+
+    expect(ee.off(registEvent)).toEqual(ee);
+    expect(ee.off(notRegistEvent)).toEqual(false);
+  });
+
   it('# fire 을 활용하면, 이벤트를 전파할 수 있다.', () => {
     const ee = new EventEmitter();
     const eventName = 'EVENT_FIRE_TEST';
