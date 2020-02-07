@@ -6,11 +6,7 @@
 	"source": {
 		"include": [
 			"README.md",
-			"./projects/code-snippet/browser",
-			"./projects/code-snippet/event",
-			"./projects/code-snippet/functions",
-			"./projects/code-snippet/observer",
-			"./projects/code-snippet/types"
+			"./projects"
 		],
 		"includePattern": ".+\\.(j|t)s(doc|x)?$",
     "excludePattern": "(node_modules/|docs)"

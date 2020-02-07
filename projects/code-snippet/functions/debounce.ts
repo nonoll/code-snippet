@@ -12,6 +12,8 @@ import { TypeVoidFunction } from '../types';
  * @memberof module:functions
  * @function
  * @see https://css-tricks.com/debouncing-throttling-explained-examples/
+ * @param {TypeVoidFunction} fn
+ * @param {Number} [delay=0]
  * @returns {TypeVoidFunction}
  * @example
 import { debounce } from '@nonoll/code-snippet/functions';
@@ -32,9 +34,8 @@ const forExample = () => {
 
 forExample();
  */
-export const debounce = (fn: TypeVoidFunction, delay: number): TypeVoidFunction => {
+export const debounce = (fn: TypeVoidFunction, /* istanbul ignore next */ delay: number = 0): TypeVoidFunction => {
   let timer;
-  delay = delay || 0;
   return (...args: any[]) => {
     window.clearTimeout(timer);
     timer = window.setTimeout(() => {

@@ -26,7 +26,8 @@ console.log(vendorPrefix()); // {dom: "Webkit", lowercase: "webkit", css: "-webk
  */
 export const vendorPrefix = (): IVendorPrefix => {
   const styles = window.getComputedStyle(window.document.documentElement, '');
-  const pre = (Array.from(styles).join('').match(/-(moz|webkit|ms)-/) || ((styles as any).OLink === '' && ['', 'o']))[1];
+  // tslint:disable-next-line: max-line-length
+  const pre = (Array.from(styles).join('').match(/-(moz|webkit|ms)-/) || /* istanbul ignore next */ ((styles as any).OLink === '' && ['', 'o']))[1];
   const dom = ('Webkit|Moz|MS|O').match(new RegExp(`(${pre})`, 'i'))[1];
   return {
     dom,
