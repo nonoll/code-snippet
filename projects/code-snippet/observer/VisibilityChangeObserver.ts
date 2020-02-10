@@ -1,20 +1,7 @@
 import { EventEmitter } from '../event';
+import { IVisibilityStatus } from './index';
 
 const doc = window.document as any;
-
-/**
- * Visibility Status 반환 규격
- * @memberof VisibilityChangeObserver
- * @alias IVisibilityStatus
- * @interface
- * @property {Boolean} hidden - hidden 상태 유무
- * @property {Boolean} show - show 상태 유무
- * @see VisibilityChangeObserver#getStatus
- */
-interface IVisibilityStatus {
-  isHidden: boolean;
-  isShow: boolean;
-}
 
 /**
  * 실행된 browser 기준으로, visibilityChange event 에 맞는 vendorPrefix 반환

@@ -1,19 +1,6 @@
 import { TypeVoidFunction } from '../types';
 import { noop } from '../functions';
-
-/**
- * Event Interface
- * @memberof EventEmitter
- * @typedef
- * @property - 이벤트 명
- * @property - listener function
- * @property - context
- */
-interface IEvent {
-  eventName: string;
-  listener?: TypeVoidFunction;
-  context?: any;
-}
+import { IEvent } from './index';
 
 /**
  * EventEmitter 의 기능과 동일한 맥락으로, 간단히 구성
