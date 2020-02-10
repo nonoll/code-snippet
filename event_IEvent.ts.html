@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>@nonoll/code-snippet Source: event/EventEmitter.ts</title>
+	<title>@nonoll/code-snippet Source: event/IEvent.ts</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -93,171 +93,25 @@
 		<div id="main">
 			
 
-		<h1 class="page-title">Source: event/EventEmitter.ts</h1>
+		<h1 class="page-title">Source: event/IEvent.ts</h1>
     
 <section>
     <article>
         <pre
             class="sunlight-highlight-javascript linenums">import { TypeVoidFunction } from '../types';
-import { noop } from '../functions';
-import { IEvent } from './index';
 
 /**
- * EventEmitter 의 기능과 동일한 맥락으로, 간단히 구성
-  &lt;iframe
-    src="https://codesandbox.io/embed/nonollcode-snippet-9gko8?autoresize=1&amp;expanddevtools=1&amp;fontsize=14&amp;hidenavigation=1&amp;initialpath=%2Fevent-EventEmitter.html&amp;module=%2Fevent-EventEmitter.html&amp;theme=dark"
-    style="width:100%; height:500px; border:1px solid black; border-radius: 4px; overflow:hidden;"
-    title="@nonoll/code-snippet"
-    allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
-    sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
-  >&lt;/iframe>
- * @export
- * @class EventEmitter
- * @alias event/EventEmitter
- * @memberof event
- * @see https://www.npmjs.com/package/events
- * @example
-import { EventEmitter } from '@nonoll/code-snippet/event';
-
-const createElement = ({ tag = 'div', id = '', style = '', value = '', text = '' }) => {
-  const doc = window.document;
-  const target = doc.createElement(tag);
-  target.setAttribute('id', id);
-  target.setAttribute('style', style);
-  target.setAttribute('value', value);
-  if (text) {
-    target.textContent = text;
-  }
-  return target;
-}
-
-let ee;
-const forExample = () => {
-  const doc = window.document;
-
-  const onButton = createElement({ tag: 'button', text: 'on button' });
-  const offButton = createElement({ tag: 'button', text: 'off button' });
-  const emitButton = createElement({ tag: 'button', text: 'emit button' });
-  const EVENT_NAME = 'EVENT_EXAMPLE';
-
-  doc.body.appendChild(onButton);
-  doc.body.appendChild(offButton);
-  doc.body.appendChild(emitButton);
-
-  ee = new EventEmitter();
-  ee.on(EVENT_NAME, res => console.log(res));
-
-  onButton.addEventListener('click', e => {
-    e.preventDefault();
-    console.log('onButton clicked');
-    if (!ee) {
-      return;
-    }
-    ee.off(EVENT_NAME);
-    ee.on(EVENT_NAME, res => console.log(res));
-  });
-
-  offButton.addEventListener('click', e => {
-    e.preventDefault();
-    console.log('offButton clicked');
-    if (!ee) {
-      return;
-    }
-    ee.off(EVENT_NAME);
-  });
-
-  emitButton.addEventListener('click', e => {
-    e.preventDefault();
-    console.log('emitButton clicked');
-    if (!ee) {
-      return;
-    }
-    ee.emit(EVENT_NAME, new Date());
-  });
-}
-
-forExample();
+ * Event Interface
+ * @alias IEvent
+ * @interface
+ * @property {String} eventName - 이벤트 명
+ * @property {TypeVoidFunction} [listener] - listener function
+ * @property {any} [context] - context
  */
-export class EventEmitter {
-  private events: Array&lt;IEvent> = [];
-
-  constructor() {}
-
-  /**
-   * 이벤트 감지 등록
-   * @param {string} eventName
-   * @param {TypeVoidFunction} [listener={@link noop}]
-   * @param {*} [context]
-   * @returns {EventEmitter}
-   * @memberof EventEmitter
-   */
-  on(eventName: string, /* istanbul ignore next: for noop */ listener: TypeVoidFunction = noop, context?: any): EventEmitter {
-    this.events.push({ eventName, listener, context });
-    return this;
-  }
-
-  /**
-   * 이벤트 감지 해제
-   * @param {string} eventName
-   * @param {TypeVoidFunction} [listener]
-   * @returns {EventEmitter}
-   * @memberof EventEmitter
-   */
-  off(eventName: string, listener?: TypeVoidFunction): EventEmitter | false {
-    // tslint:disable-next-line: max-line-length
-    const matched = this.events.findIndex(regEvent => regEvent.eventName === eventName &amp;&amp; (listener ? regEvent.listener === listener : true));
-    // tslint:disable-next-line: no-bitwise
-    if (!~matched) {
-      return false;
-    }
-    this.events.splice(matched, 1);
-    return this;
-  }
-
-  /**
-   * 이벤트 1회 감지 등록
-   * @param {string} eventName
-   * @param {TypeVoidFunction} [listener={@link noop}]
-   * @param {*} [context]
-   * @returns {EventEmitter}
-   * @memberof EventEmitter
-   */
-  once(eventName: string, /* istanbul ignore next: for noop */ listener: TypeVoidFunction = noop, context?: any): EventEmitter {
-    const onceWrapper = (...values: any) => {
-      this.off(eventName, onceWrapper);
-      listener.apply(context || listener, values);
-    };
-    this.on(eventName, onceWrapper, context);
-    return this;
-  }
-
-  /**
-   * 이벤트 전파
-   * @param {string} eventName
-   * @param {...any[]} values
-   * @returns {EventEmitter}
-   * @memberof EventEmitter
-   */
-  emit(eventName: string, ...values: any[]): EventEmitter {
-    this.events.forEach(regEvent => {
-      if (regEvent.eventName === eventName) {
-        regEvent.listener.apply(regEvent.context || regEvent.listener, values);
-      }
-    });
-    return this;
-  }
-
-  /**
-   * 이벤트 전파
-   * @param {string} eventName
-   * @param {any} values
-   * @returns {EventEmitter}
-   * @memberof EventEmitter
-   */
-  fire(eventName: string, values: any): EventEmitter {
-    this.emit(eventName, values);
-    return this;
-  }
+export interface IEvent {
+  eventName: string;
+  listener?: TypeVoidFunction;
+  context?: any;
 }
 </pre>
     </article>
