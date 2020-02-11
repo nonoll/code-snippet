@@ -6,11 +6,11 @@ update_configs:
     update_schedule: "daily"
     automerged_updates:
       - match:
-        dependency_type: "production" # production / development / all
-        update_type: "semver:minor"
+          dependency_type: "production" # production / development / all
+          update_type: "semver:minor"
     # Apply default reviewer and label to created
     # pull requests
     default_reviewers:
       - "nonoll"
-    #default_labels:
-    #  - "dependabot-update"
+    default_labels:
+      - "dependabot-update"
