@@ -4,6 +4,8 @@
 
 ## Status
 
+![Dependabot](https://api.dependabot.com/badges/status?host=github&repo=nonoll/code-snippet&style=for-the-badge)
+
 ![TRAVIS](https://img.shields.io/travis/com/nonoll/code-snippet/master.svg?style=for-the-badge)
 ![Codecov branch](https://img.shields.io/codecov/c/github/nonoll/code-snippet/master?style=for-the-badge)
 
