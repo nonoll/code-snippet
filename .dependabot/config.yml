@@ -10,7 +10,7 @@ update_configs:
           update_type: "semver:minor"
     # Apply default reviewer and label to created
     # pull requests
-    default_reviewers:
-      - "nonoll"
-    default_labels:
-      - "dependabot-update"
+    # default_reviewers:
+    #   - "nonoll"
+    # default_labels:
+    #   - "dependabot-update"
