@@ -29,27 +29,28 @@
     "travis:build": "ng build",
     "travis:jsdoc": "rm -rf ./docs && jsdoc -c jsdoc.json",
     "travis:test": "ng test --watch=false --code-coverage=true --browsers=ChromeHeadless",
-    "travis:codecov": "codecov"
+    "travis:codecov": "codecov",
+    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~8.2.14",
-    "@angular/common": "~8.2.14",
-    "@angular/compiler": "~8.2.14",
-    "@angular/core": "~8.2.14",
-    "@angular/forms": "~8.2.14",
-    "@angular/platform-browser": "~8.2.14",
-    "@angular/platform-browser-dynamic": "~8.2.14",
-    "@angular/router": "~8.2.14",
+    "@angular/animations": "~9.0.0",
+    "@angular/common": "~9.0.0",
+    "@angular/compiler": "~9.0.0",
+    "@angular/core": "~9.0.0",
+    "@angular/forms": "~9.0.0",
+    "@angular/platform-browser": "~9.0.0",
+    "@angular/platform-browser-dynamic": "~9.0.0",
+    "@angular/router": "~9.0.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
-    "zone.js": "~0.9.1"
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.803.24",
-    "@angular-devkit/build-ng-packagr": "~0.803.24",
+    "@angular-devkit/build-angular": "~0.900.1",
+    "@angular-devkit/build-ng-packagr": "~0.900.1",
     "@angular/cli": "~9.0.1",
-    "@angular/compiler-cli": "~8.2.14",
+    "@angular/compiler-cli": "~9.0.0",
     "@angular/language-service": "~9.0.0",
     "@daybrush/jsdoc": "^0.3.7",
     "@types/jasmine": "~3.5.3",
@@ -71,6 +72,6 @@
     "ts-node": "~7.0.0",
     "tsickle": "^0.38.0",
     "tslint": "~5.20.1",
-    "typescript": "~3.5.3"
+    "typescript": "~3.7.5"
   }
 }

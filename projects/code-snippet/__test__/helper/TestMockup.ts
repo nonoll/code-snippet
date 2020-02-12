@@ -3,5 +3,5 @@
 import { USER_AGENTS } from './TestUserAgent';
 
 export const MockUserAgent = (agent = USER_AGENTS.GALAXY_S5 ) => {
-  return Object.defineProperty(window.navigator, 'userAgent', { value: agent });
+  return Object.defineProperty(window.navigator, 'userAgent', { value: agent, configurable: true });
 };
