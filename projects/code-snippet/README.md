@@ -6,14 +6,14 @@
 
 ![Dependabot](https://api.dependabot.com/badges/status?host=github&repo=nonoll/code-snippet&style=for-the-badge)
 
-![TRAVIS](https://img.shields.io/travis/com/nonoll/code-snippet/master.svg?style=for-the-badge)
-![Codecov branch](https://img.shields.io/codecov/c/github/nonoll/code-snippet/master?style=for-the-badge)
+[![TRAVIS](https://img.shields.io/travis/com/nonoll/code-snippet/master.svg?style=for-the-badge)](https://travis-ci.org/nonoll/code-snippet/builds)
+[![Codecov branch](https://img.shields.io/codecov/c/github/nonoll/code-snippet/master?style=for-the-badge)](https://codecov.io/gh/nonoll/code-snippet)
 
-![NPM version](https://img.shields.io/npm/v/@nonoll/code-snippet.svg?style=for-the-badge)
-![NPM download](https://img.shields.io/npm/dt/@nonoll/code-snippet?style=for-the-badge)
+[![NPM version](https://img.shields.io/npm/v/@nonoll/code-snippet.svg?style=for-the-badge)](https://www.npmjs.com/package/@nonoll/code-snippet)
+[![NPM download](https://img.shields.io/npm/dt/@nonoll/code-snippet?style=for-the-badge)](https://www.npmjs.com/package/@nonoll/code-snippet)
 
-![NPM license](https://img.shields.io/npm/l/@nonoll/code-snippet?style=for-the-badge)
-![NPM bundle size](https://img.shields.io/bundlephobia/min/@nonoll/code-snippet?style=for-the-badge)
+[![NPM license](https://img.shields.io/npm/l/@nonoll/code-snippet?style=for-the-badge)](https://github.com/nonoll/code-snippet/blob/master/LICENSE)
+[![NPM bundle size](https://img.shields.io/bundlephobia/min/@nonoll/code-snippet?style=for-the-badge)](https://www.npmjs.com/package/@nonoll/code-snippet)
 
 ## Links
 
