@@ -1,7 +1,7 @@
 import { TypeVoidFunction } from '../types';
 import { EventEmitter } from '../event';
 import { debounce as _debounce, noop } from '../functions';
-import { IMutationObserverExtOption } from './index';
+import { IMutationObserverExtOption } from './types';
 
 /**
  * @typedef {String} MutationRecordType
