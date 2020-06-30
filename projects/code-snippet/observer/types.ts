@@ -1,3 +1,5 @@
+import { TypeVoidFunction } from '../types';
+
 /**
  * pure MutationObserver init options
  * @memberof MutationObserver
@@ -20,4 +22,35 @@ export interface IMutationObserverInit {
   attributeOldValue?: boolean;
   characterDataOldValue?: boolean;
   attributeFilter?: string[];
-}
+};
+
+/**
+ * MutationObserver init options
+ * @memberof MutationObserver
+ * @alias IMutationObserverExtOption
+ * @interface
+ * @property {HTMLElement} target - 감지할 element
+ * @property {Number} [debounce] - 이벤트 debounce 값
+ * @property {TypeVoidFunction} [callback] - 이벤트 callback
+ * @property {IMutationObserverInit} [options] - 세부 MutationObserver options
+ */
+export interface IMutationObserverExtOption {
+  target: HTMLElement;
+  debounce?: number;
+  callback?: TypeVoidFunction;
+  options?: IMutationObserverInit;
+};
+
+/**
+ * Visibility Status 반환 규격
+ * @memberof VisibilityChangeObserver
+ * @alias IVisibilityStatus
+ * @interface
+ * @property {Boolean} hidden - hidden 상태 유무
+ * @property {Boolean} show - show 상태 유무
+ * @see VisibilityChangeObserver#getStatus
+ */
+export interface IVisibilityStatus {
+  isHidden: boolean;
+  isShow: boolean;
+};

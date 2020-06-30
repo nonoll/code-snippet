@@ -1,5 +1,5 @@
 import { EventEmitter } from '../event';
-import { IVisibilityStatus } from './index';
+import { IVisibilityStatus } from './types';
 
 const doc = window.document as any;
 
