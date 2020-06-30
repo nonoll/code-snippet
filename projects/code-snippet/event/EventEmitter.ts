@@ -1,6 +1,6 @@
 import { TypeVoidFunction } from '../types';
 import { noop } from '../functions';
-import { IEvent } from './index';
+import { IEvent } from './types';
 
 /**
  * EventEmitter 의 기능과 동일한 맥락으로, 간단히 구성
