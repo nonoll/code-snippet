@@ -12,4 +12,4 @@ export interface IEvent {
   eventName: string;
   listener?: TypeVoidFunction;
   context?: any;
-}
+};
