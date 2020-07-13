@@ -1,6 +1,6 @@
 {
   "name": "code-snippet",
-  "version": "0.0.0",
+  "version": "0.1.1",
   "license": "MIT",
   "author": {
     "name": "nonoll",
@@ -16,6 +16,10 @@
     "email": "hkroh.nonoll@gmail.com"
   },
   "homepage": "https://nonoll.github.io/code-snippet",
+  "keywords": [
+    "nonoll",
+    "code-snippet"
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
