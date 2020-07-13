@@ -54,7 +54,7 @@
 			<li class="dropdown">
 				<a href="interfaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Interfaces<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="IEvent.html">IEvent</a></li><li><a href="IMutationObserverExtOption.html">IMutationObserverExtOption</a></li><li><a href="IMutationObserverInit.html">IMutationObserverInit</a></li><li><a href="IPassive.html">IPassive</a></li><li><a href="IRatio.html">IRatio</a></li><li><a href="IRatioParams.html">IRatioParams</a></li><li><a href="IVisibilityStatus.html">IVisibilityStatus</a></li>
+					<li><a href="IAgentType.html">IAgentType</a></li><li><a href="IBrowserAgents.html">IBrowserAgents</a></li><li><a href="IBrowserType.html">IBrowserType</a></li><li><a href="IEvent.html">IEvent</a></li><li><a href="IMutationObserverExtOption.html">IMutationObserverExtOption</a></li><li><a href="IMutationObserverInit.html">IMutationObserverInit</a></li><li><a href="IPassive.html">IPassive</a></li><li><a href="IRatio.html">IRatio</a></li><li><a href="IRatioParams.html">IRatioParams</a></li><li><a href="IVisibilityStatus.html">IVisibilityStatus</a></li>
 				</ul>
 			</li>
 			
@@ -176,6 +176,122 @@
         <h3 class="subsection-title">Methods</h3>
 
         <dl>
+            
+<hr>
+<dt>
+    <h4 class="name" id=".browserType"><span class="type-signature">&lt;static> </span>browserType()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>AOS, IOS - type, version 정보 반환</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="browser_uaParser.ts.html">browser/uaParser.ts</a>,
+				 <a href="browser_uaParser.ts.html#sunlight-1-line-56">line 56</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="IBrowserType.html">IBrowserType</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">import { browserType } from &#x27;@nonoll/code-snippet/browser&#x27;;
+
+console.log(browserType()); // { type, version }</pre>
+
+
+    
+</dd>
+
+        
             
 <hr>
 <dt>
@@ -649,6 +765,312 @@ console.log(isIOS()); // true or false</pre>
             
 <hr>
 <dt>
+    <h4 class="name" id=".uaParser"><span class="type-signature">&lt;static> </span>uaParser(parsingType [, start] [, end] [, ua])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>uaParser</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>parsingType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">T</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>parsing 타입</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>start</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+
+            <td class="description last"><p>version slice - start index</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>end</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+
+            <td class="description last"><p>version slice - end index</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ua</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    window.navigator.userAgent
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="browser_uaParser.ts.html">browser/uaParser.ts</a>,
+				 <a href="browser_uaParser.ts.html#sunlight-1-line-22">line 22</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">R</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">import { uaParser, IBrowserType } from &#x27;@nonoll/code-snippet/browser&#x27;;
+
+const iosChromeParser = (): IBrowserType =&gt; {
+  return uaParser&lt;{CHROME: string}, IBrowserType&gt;({CHROME: &#x27;CriOS\/([0-9]+)?\\.?([0-9]+)\\.?([0-9]+)\\.?([0-9]+)?&#x27;}, 1, 6);
+};
+
+console.log(iosChromeParser()); // { type, version }</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
     <h4 class="name" id=".vendorPrefix"><span class="type-signature">&lt;static> </span>vendorPrefix()</h4>
     
     
@@ -704,7 +1126,7 @@ console.log(isIOS()); // true or false</pre>
 		<ul class="dummy">
 			<li>
 				<a href="browser_vendorPrefix.ts.html">browser/vendorPrefix.ts</a>,
-				 <a href="browser_vendorPrefix.ts.html#sunlight-1-line-27">line 27</a>
+				 <a href="browser_vendorPrefix.ts.html#sunlight-1-line-13">line 13</a>
 			</li>
 		</ul>
 	</dd>
@@ -774,6 +1196,160 @@ console.log(vendorPrefix()); // {dom: &quot;Webkit&quot;, lowercase: &quot;webki
         <h3 class="subsection-title">Type Definitions</h3>
 
         <dl>
+                
+<hr>
+<dt class="name" id="BROWSER_AGENTS">
+    <h4 id="BROWSER_AGENTS">BROWSER_AGENTS</h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>AOS</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>user agent pattern</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>IOS</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>user agent pattern</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="browser_types.ts.html">browser/types.ts</a>,
+				 <a href="browser_types.ts.html#sunlight-1-line-1">line 1</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
                 
 <hr>
 <dt class="name" id=".IVendorPrefix">
@@ -961,8 +1537,8 @@ console.log(vendorPrefix()); // {dom: &quot;Webkit&quot;, lowercase: &quot;webki
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="browser_vendorPrefix.ts.html">browser/vendorPrefix.ts</a>,
-				 <a href="browser_vendorPrefix.ts.html#sunlight-1-line-10">line 10</a>
+				<a href="browser_types.ts.html">browser/types.ts</a>,
+				 <a href="browser_types.ts.html#sunlight-1-line-63">line 63</a>
 			</li>
 		</ul>
 	</dd>
@@ -1031,7 +1607,7 @@ console.log(vendorPrefix()); // {dom: &quot;Webkit&quot;, lowercase: &quot;webki
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 0.3.7</a>
 	
-		on 2020-07-09
+		on 2020-07-13
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

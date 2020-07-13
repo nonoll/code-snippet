@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>@nonoll/code-snippet Source: math/sizePercentRatio.ts</title>
+	<title>@nonoll/code-snippet Source: browser/uaParser.ts</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -93,32 +93,67 @@
 		<div id="main">
 			
 
-		<h1 class="page-title">Source: math/sizePercentRatio.ts</h1>
+		<h1 class="page-title">Source: browser/uaParser.ts</h1>
     
 <section>
     <article>
         <pre
-            class="sunlight-highlight-javascript linenums">import { IRatioParams, IRatio } from './types';
+            class="sunlight-highlight-javascript linenums">import { IBrowserAgents, IBrowserType, BROWSER_AGENTS } from './types';
 
 /**
- * width : height 로 css padding-top 비율(%) 반환&lt;br/>
- * css padding에 의한 비율 계산이 필요할 경우 사용
- * @memberof module:math
+ * uaParser
+ * @template T, R
+ * @memberof module:browser
  * @function
- * @param {Number} width
- * @param {Number} height
- * @returns {IRatio}
- */
-export const sizePercentRatio = ({ width, height }: IRatioParams): IRatio => {
-  const w = Math.round(width);
-  const h = Math.round(height);
-  const ratio = {
-    width: w,
-    height: h,
-    ratio: ((height / width) * 100).toFixed(2)
-  };
-  return ratio;
+ * @param {T} parsingType parsing 타입
+ * @param {Number} [start=1] version slice - start index
+ * @param {Number} [end=1] version slice - end index
+ * @param {String} [ua=window.navigator.userAgent]
+ * @returns {R}
+ * @example
+import { uaParser, IBrowserType } from '@nonoll/code-snippet/browser';
+
+const iosChromeParser = (): IBrowserType => {
+  return uaParser&lt;{CHROME: string}, IBrowserType>({CHROME: 'CriOS\/([0-9]+)?\\.?([0-9]+)\\.?([0-9]+)\\.?([0-9]+)?'}, 1, 6);
 };
+
+console.log(iosChromeParser()); // { type, version }
+ */
+export const uaParser = &lt;T = unknown, R = unknown>(parsingType: T, start = 1, end = 4, ua = window.navigator.userAgent): R => {
+  const matched = (Object.entries(parsingType)
+    .map((values: [string, unknown]) => {
+      const [type, pattern] = values;
+      // tslint:disable-next-line: no-shadowed-variable
+      const matched = ua.match(new RegExp(pattern as string, 'i'));
+      if (!matched) {
+        return null;
+      }
+      const version = matched
+        .slice(start, end)
+        .map(v => v || 0)
+        .join('.');
+      return { type, version };
+    })
+    .filter(v => v)[0] as unknown) as R;
+
+  if (matched) {
+    return { ...matched } as R;
+  } else {
+    return ({ type: null, version: '' } as unknown) as R;
+  }
+};
+
+/**
+ * AOS, IOS - type, version 정보 반환
+ * @memberof module:browser
+ * @function
+ * @returns {IBrowserType}
+ * @example
+import { browserType } from '@nonoll/code-snippet/browser';
+
+console.log(browserType()); // { type, version }
+ */
+export const browserType = (): IBrowserType => uaParser&lt;IBrowserAgents, IBrowserType>(BROWSER_AGENTS, 2, 5);
 </pre>
     </article>
 </section>
