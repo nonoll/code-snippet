@@ -1,18 +1,4 @@
-/**
- * IVendorPrefix
- * @memberof module:browser
- * @typedef
- * @property - dom 기준, prefix
- * @property - 소문자로 반환
- * @property - css 기준, prefix
- * @property - js 기준, prefix
- */
-interface IVendorPrefix {
-  dom: string;
-  lowercase: string;
-  css: string;
-  js: string;
-}
+import { IVendorPrefix } from './types';
 
 /**
  * browser - vendorPrefix 반환

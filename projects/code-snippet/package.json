@@ -20,7 +20,10 @@
     "access": "public"
   },
   "homepage": "https://nonoll.github.io/code-snippet",
-  "keywords": [],
+  "keywords": [
+    "nonoll",
+    "code-snippet"
+  ],
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14"
