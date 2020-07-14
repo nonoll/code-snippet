@@ -152,7 +152,7 @@ export class VisibilityChangeObserver extends EventEmitter {
     super();
 
     /* istanbul ignore next: for not support error */
-    if (!VisibilityChangeObserver.isSupportVisibilityChange()) {
+    if (!VisibilityChangeObserver.isSupport()) {
       throw new Error('VisibilityChange 지원되지 않는 브라우저입니다.');
     }
 
@@ -185,7 +185,7 @@ export class VisibilityChangeObserver extends EventEmitter {
    * @returns {boolean}
    * @memberof VisibilityChangeObserver
    */
-  static isSupportVisibilityChange(): boolean {
+  static isSupport(): boolean {
     return typeof doc[VisibilityChangeObserver.hiddenMethodName()] !== 'undefined';
   }
 
