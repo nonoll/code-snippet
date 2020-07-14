@@ -40,28 +40,28 @@
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="EventEmitter.html">EventEmitter</a></li><li><a href="MutationObserver.html">MutationObserver</a></li><li><a href="VisibilityChangeObserver.html">VisibilityChangeObserver</a></li>
+					<li><a href="EventEmitter.html">EventEmitter</a></li><li><a href="IntersectionObserver.html">IntersectionObserver</a></li><li><a href="MutationObserver.html">MutationObserver</a></li><li><a href="VisibilityChangeObserver.html">VisibilityChangeObserver</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="events.list.html" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="MutationObserver.html#event:MUTATION_EVENTS">MutationObserver#event:MUTATION_EVENTS</a></li><li><a href="VisibilityChangeObserver.html#event:VISIBILITY_EVENTS">VisibilityChangeObserver#event:VISIBILITY_EVENTS</a></li>
+					<li><a href="IntersectionObserver.html#event:INTERSECTION_EVENTS">IntersectionObserver#event:INTERSECTION_EVENTS</a></li><li><a href="MutationObserver.html#event:MUTATION_EVENTS">MutationObserver#event:MUTATION_EVENTS</a></li><li><a href="VisibilityChangeObserver.html#event:VISIBILITY_EVENTS">VisibilityChangeObserver#event:VISIBILITY_EVENTS</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="interfaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Interfaces<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="IAgentType.html">IAgentType</a></li><li><a href="IBrowserAgents.html">IBrowserAgents</a></li><li><a href="IBrowserType.html">IBrowserType</a></li><li><a href="IEvent.html">IEvent</a></li><li><a href="IMutationObserverExtOption.html">IMutationObserverExtOption</a></li><li><a href="IMutationObserverInit.html">IMutationObserverInit</a></li><li><a href="IPassive.html">IPassive</a></li><li><a href="IRatio.html">IRatio</a></li><li><a href="IRatioParams.html">IRatioParams</a></li><li><a href="IVisibilityStatus.html">IVisibilityStatus</a></li>
+					<li><a href="IAgentType.html">IAgentType</a></li><li><a href="IBrowserType.html">IBrowserType</a></li><li><a href="IEvent.html">IEvent</a></li><li><a href="IIntersectionChangeData.html">IIntersectionChangeData</a></li><li><a href="IIntersectionObserverExtOption.html">IIntersectionObserverExtOption</a></li><li><a href="IBrowserAgents.html">IBrowserAgents</a></li><li><a href="IMutationObserverInit.html">IMutationObserverInit</a></li><li><a href="IPassive.html">IPassive</a></li><li><a href="IRatio.html">IRatio</a></li><li><a href="IRatioParams.html">IRatioParams</a></li><li><a href="IVisibilityStatus.html">IVisibilityStatus</a></li><li><a href="IMutationObserverExtOption.html">IMutationObserverExtOption</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="global.html#event">event</a></li><li><a href="global.html#observer">observer</a></li>
+					<li><a href="global.html#event">event</a></li><li><a href="global.html#INTERSECTION_EVENTS">INTERSECTION_EVENTS</a></li><li><a href="global.html#observer">observer</a></li>
 				</ul>
 			</li>
 			
@@ -237,6 +237,83 @@
         
             
 <hr>
+<dt class="name" id="INTERSECTION_EVENTS">
+    <h4 id="INTERSECTION_EVENTS"><span class="type-signature">&lt;constant> </span>INTERSECTION_EVENTS<span class="type-signature"> :<a href="global.html#INTERSECTION_EVENTS">INTERSECTION_EVENTS</a></span></h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="global.html#INTERSECTION_EVENTS">INTERSECTION_EVENTS</a></span>
+
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="observer_IntersectionObserver.ts.html">observer/IntersectionObserver.ts</a>,
+				 <a href="observer_IntersectionObserver.ts.html#sunlight-1-line-19">line 19</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
 <dt class="name" id="observer">
     <h4 id="observer"><span class="type-signature"></span>observer<span class="type-signature"></span></h4>
 
@@ -306,6 +383,609 @@
     
 
     
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        <dl>
+                
+<hr>
+<dt>
+    <h4 class="name" id="callback"><span class="type-signature"></span>callback(changeData)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>changeData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="IIntersectionChangeData.html">IIntersectionChangeData</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="observer_types.ts.html">observer/types.ts</a>,
+				 <a href="observer_types.ts.html#sunlight-1-line-82">line 82</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="IntersectionObserverEntry">
+    <h4 id="IntersectionObserverEntry">IntersectionObserverEntry</h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>boundingClientRect</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">DOMRectReadOnly</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>intersectionRatio</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>intersectionRect</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">DOMRectReadOnly</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>isIntersecting</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>rootBounds</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">DOMRectReadOnly</span>
+|
+
+<span class="param-type">null</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>target</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Element</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>time</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="observer_types.ts.html">observer/types.ts</a>,
+				 <a href="observer_types.ts.html#sunlight-1-line-69">line 69</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            
+                
+<hr>
+<dt class="name" id="IntersectionObserverInit">
+    <h4 id="IntersectionObserverInit">IntersectionObserverInit</h4>
+
+    
+</dt>
+<dd>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>root</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Element</span>
+|
+
+<span class="param-type">null</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>rootMargin</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>threshold</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+|
+
+<span class="param-type">Array.&lt;Number></span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="observer_types.ts.html">observer/types.ts</a>,
+				 <a href="observer_types.ts.html#sunlight-1-line-60">line 60</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+            </dl>
+    
 
     
 </article>
@@ -356,7 +1036,7 @@
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 0.3.7</a>
 	
-		on 2020-07-13
+		on 2020-07-14
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

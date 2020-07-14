@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>@nonoll/code-snippet Class: MutationObserver</title>
+	<title>@nonoll/code-snippet Class: IntersectionObserver</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -93,13 +93,13 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: MutationObserver</h1>
+	<h1 class="page-title">Class: IntersectionObserver</h1>
 <section>
 
 <header>
     
         <h2>
-        MutationObserver
+        IntersectionObserver
         </h2>
         
     
@@ -112,7 +112,7 @@
         
 <hr>
 <dt>
-    <h4 class="name" id="MutationObserver"><span class="type-signature"></span>new MutationObserver(option)</h4>
+    <h4 class="name" id="IntersectionObserver"><span class="type-signature"></span>new IntersectionObserver(initParams)</h4>
     
     
 </dt>
@@ -120,14 +120,7 @@
 
     
     <div class="description">
-        <p>target 으로 설정된 element 의 변화를 감지</p>
-  <iframe
-    src="https://codesandbox.io/embed/nonollcode-snippet-9gko8?autoresize=1&expanddevtools=1&fontsize=14&hidenavigation=1&initialpath=%2Fobserver-MutationObserver.html&module=%2Fobserver-MutationObserver.html&theme=dark"
-    style="width:100%; height:500px; border:1px solid black; border-radius: 4px; overflow:hidden;"
-    title="@nonoll/code-snippet"
-    allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
-    sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
-  ></iframe>
+        <p>element 가 viewport 영역에 노출되는지 변화를 감지</p>
     </div>
     
 
@@ -162,13 +155,13 @@
 
         <tr>
             
-                <td class="name"><code>option</code></td>
+                <td class="name"><code>initParams</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Partial.&lt;<a href="IMutationObserverExtOption.html">IMutationObserverExtOption</a>></span>
+<span class="param-type">Partial.&lt;<a href="IIntersectionObserverExtOption.html">IIntersectionObserverExtOption</a>></span>
 
 
 
@@ -215,7 +208,43 @@
             <td class="type">
             
                 
-<span class="param-type">HTMLElement</span>
+<span class="param-type">Element</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>visibleRatio</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
 
 
 
@@ -237,19 +266,19 @@
             
                 <td class="default">
                 
-                    null
+                    0
                 
                 </td>
             
 
-            <td class="description last"><p>target</p></td>
+            <td class="description last"></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>debounce</code></td>
+                <td class="name"><code>throttle</code></td>
             
 
             <td class="type">
@@ -282,7 +311,7 @@
                 </td>
             
 
-            <td class="description last"><p>debounce</p></td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -338,7 +367,7 @@
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type"><a href="global.html#IntersectionObserverInit">IntersectionObserverInit</a></span>
 
 
 
@@ -365,273 +394,7 @@
                 </td>
             
 
-            <td class="description last">
-                <h6 class="method-params-label method-subparams-label">Properties</h6>
-                
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Argument</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>childList</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Boolean</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
             <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>attributes</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Boolean</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>characterData</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Boolean</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>subtree</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Boolean</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>attributeOldValue</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Boolean</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>characterDataOldValue</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Boolean</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>attributeFilter</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;String></span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/MutationObserverInit/attributeFilter">MDN attributeFilter</a></p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
         </tr>
 
     
@@ -682,8 +445,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="observer_MutationObserver.ts.html">observer/MutationObserver.ts</a>,
-				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-75">line 75</a>
+				<a href="observer_IntersectionObserver.ts.html">observer/IntersectionObserver.ts</a>,
+				 <a href="observer_IntersectionObserver.ts.html#sunlight-1-line-316">line 316</a>
 			</li>
 		</ul>
 	</dd>
@@ -695,11 +458,9 @@
 	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
 	<dd class="tag-see">
 		<ul>
-			<li><a href="https://developer.mozilla.org/ko/docs/Web/API/MutationObserver">https://developer.mozilla.org/ko/docs/Web/API/MutationObserver</a></li>
+			<li><a href="https://developer.mozilla.org/ko/docs/Web/API/IntersectionObserver/IntersectionObserver">https://developer.mozilla.org/ko/docs/Web/API/IntersectionObserver/IntersectionObserver</a></li>
 			
-			<li><a href="https://github.com/webmodules/mutation-observer">https://github.com/webmodules/mutation-observer</a></li>
-			
-			<li><a href="https://developer.mozilla.org/ko/docs/Web/API/MutationObserver#MutationObserverInit">https://developer.mozilla.org/ko/docs/Web/API/MutationObserver#MutationObserverInit</a></li>
+			<li><a href="https://caniuse.com/#search=IntersectionObserver">https://caniuse.com/#search=IntersectionObserver</a></li>
 			</ul>
 	</dd>
 	
@@ -717,92 +478,41 @@
     
 
     
+    <h5>Throws:</h5>
+    
+            
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        <p>target 옵션을 지정하지 않은 경우 - throw new Error('IntersectionObserver target 설정은 필수 값 입니다.');</p>
+        </div>
+    </dt>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+
+            </dd>
+        </dl>
+    </dt>
+</dl>
+
+
+        
 
     
 
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">import { MutationObserver, MUTATION_EVENTS } from &#x27;@nonoll/code-snippet/observer&#x27;;
-
-const createElement = ({ tag = &#x27;div&#x27;, id = &#x27;&#x27;, style = &#x27;&#x27;, value = &#x27;&#x27;, text = &#x27;&#x27; }) =&gt; {
-  const doc = window.document;
-  const target = doc.createElement(tag);
-  target.setAttribute(&#x27;id&#x27;, id);
-  target.setAttribute(&#x27;style&#x27;, style);
-  target.setAttribute(&#x27;value&#x27;, value);
-  if (text) {
-    target.textContent = text;
-  }
-  return target;
-}
-
-let observer;
-
-const forExample = () =&gt; {
-  if (observer) {
-    console.log(&#x27;already example&#x27;);
-    return;
-  }
-
-  const doc = window.document;
-
-  const target = createElement({ id: &#x27;example_target&#x27;, style: &#x27;border: 1px solid red&#x27; });
-  doc.body.appendChild(target);
-
-  const options = {
-    childList: true,
-    subtree: true
-  };
-
-  observer = new MutationObserver({ target, options });
-
-  observer.on(MUTATION_EVENTS.WILD_CARD, (type, values) =&gt; {
-    console.log(&#x27;wildCard&#x27;, type, values);
-  }).on(MUTATION_EVENTS.CHANGE_CHILD_LIST, values =&gt; {
-    console.log(&#x27;childList&#x27;, values);
-  });
-
-  observer.attach();
-
-  const attachButton = createElement({ tag: &#x27;button&#x27;, text: &#x27;observer attach&#x27; });
-  const detachButton = createElement({ tag: &#x27;button&#x27;, text: &#x27;observer detach&#x27; });
-  const appendButton = createElement({ tag: &#x27;button&#x27;, text: &#x27;append&#x27; });
-
-  doc.body.appendChild(attachButton);
-  doc.body.appendChild(detachButton);
-  doc.body.appendChild(appendButton);
-
-  attachButton.addEventListener(&#x27;click&#x27;, e =&gt; {
-    e.preventDefault();
-    console.log(&#x27;attachButton clicked&#x27;);
-    if (!observer) {
-      return;
-    }
-    observer.attach();
-  });
-
-  detachButton.addEventListener(&#x27;click&#x27;, e =&gt; {
-    e.preventDefault();
-    console.log(&#x27;detachButton clicked&#x27;);
-    if (!observer) {
-      return;
-    }
-    observer.detach();
-  });
-
-  appendButton.addEventListener(&#x27;click&#x27;, e =&gt; {
-    e.preventDefault();
-    console.log(&#x27;appendButton clicked&#x27;);
-    if (!observer) {
-      return;
-    }
-    const input = createElement({ tag: &#x27;input&#x27;, value: &#x60;${+new Date()}&#x60; });
-    target.appendChild(input);
-  });
-}
-
-forExample();</pre>
+    <pre class="sunlight-highlight-javascript">.. TODO</pre>
 
 
     
@@ -895,8 +605,8 @@ forExample();</pre>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="observer_MutationObserver.ts.html">observer/MutationObserver.ts</a>,
-				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-216">line 216</a>
+				<a href="observer_IntersectionObserver.ts.html">observer/IntersectionObserver.ts</a>,
+				 <a href="observer_IntersectionObserver.ts.html#sunlight-1-line-409">line 409</a>
 			</li>
 		</ul>
 	</dd>
@@ -932,7 +642,7 @@ forExample();</pre>
     </dt>
     <dd>
         
-<span class="param-type"><a href="MutationObserver.html">MutationObserver</a></span>
+<span class="param-type"><a href="IntersectionObserver.html">IntersectionObserver</a></span>
 
 
 
@@ -941,12 +651,6 @@ forExample();</pre>
 
 
         
-
-    
-        <h5>Example</h5>
-        
-    <pre class="sunlight-highlight-javascript">observer.attach();</pre>
-
 
     
 </dd>
@@ -1009,8 +713,8 @@ forExample();</pre>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="observer_MutationObserver.ts.html">observer/MutationObserver.ts</a>,
-				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-304">line 304</a>
+				<a href="observer_IntersectionObserver.ts.html">observer/IntersectionObserver.ts</a>,
+				 <a href="observer_IntersectionObserver.ts.html#sunlight-1-line-429">line 429</a>
 			</li>
 		</ul>
 	</dd>
@@ -1046,7 +750,7 @@ forExample();</pre>
     </dt>
     <dd>
         
-<span class="param-type"><a href="MutationObserver.html">MutationObserver</a></span>
+<span class="param-type"><a href="IntersectionObserver.html">IntersectionObserver</a></span>
 
 
 
@@ -1055,12 +759,6 @@ forExample();</pre>
 
 
         
-
-    
-        <h5>Example</h5>
-        
-    <pre class="sunlight-highlight-javascript">observer.destroy();</pre>
-
 
     
 </dd>
@@ -1123,8 +821,8 @@ forExample();</pre>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="observer_MutationObserver.ts.html">observer/MutationObserver.ts</a>,
-				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-290">line 290</a>
+				<a href="observer_IntersectionObserver.ts.html">observer/IntersectionObserver.ts</a>,
+				 <a href="observer_IntersectionObserver.ts.html#sunlight-1-line-419">line 419</a>
 			</li>
 		</ul>
 	</dd>
@@ -1160,7 +858,7 @@ forExample();</pre>
     </dt>
     <dd>
         
-<span class="param-type"><a href="MutationObserver.html">MutationObserver</a></span>
+<span class="param-type"><a href="IntersectionObserver.html">IntersectionObserver</a></span>
 
 
 
@@ -1169,12 +867,6 @@ forExample();</pre>
 
 
         
-
-    
-        <h5>Example</h5>
-        
-    <pre class="sunlight-highlight-javascript">observer.detach();</pre>
-
 
     
 </dd>
@@ -1987,7 +1679,7 @@ forExample();</pre>
 	<dd class="inherited-from">
 		<ul class="dummy">
 			<li>
-				<a href="MutationObserver.html#on">MutationObserver#on</a>
+				<a href="EventEmitter.html#on">EventEmitter#on</a>
 			</li>
 		</ul>
 	</dd>
@@ -2023,8 +1715,8 @@ forExample();</pre>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="observer_MutationObserver.ts.html">observer/MutationObserver.ts</a>,
-				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-231">line 231</a>
+				<a href="event_EventEmitter.ts.html">event/EventEmitter.ts</a>,
+				 <a href="event_EventEmitter.ts.html#sunlight-1-line-94">line 94</a>
 			</li>
 		</ul>
 	</dd>
@@ -2043,11 +1735,6 @@ forExample();</pre>
     
 
     
-    <h5>Listens to Events:</h5>
-    <ul>
-        <li><a href="MutationObserver.html#event:MUTATION_EVENTS">MutationObserver#event:MUTATION_EVENTS</a></li>
-    </ul>
-    
 
     
 
@@ -2065,7 +1752,7 @@ forExample();</pre>
     </dt>
     <dd>
         
-<span class="param-type"><a href="MutationObserver.html">MutationObserver</a></span>
+<span class="param-type"><a href="EventEmitter.html">EventEmitter</a></span>
 
 
 
@@ -2353,8 +2040,8 @@ forExample();</pre>
         <dl>
                 
 <hr>
-<dt class="name" id="MutationRecordType">
-    <h4 id="MutationRecordType">MutationRecordType</h4>
+<dt class="name" id="INTERSECTION_DIRECTIONS">
+    <h4 id="INTERSECTION_DIRECTIONS">INTERSECTION_DIRECTIONS</h4>
 
     
 </dt>
@@ -2404,7 +2091,7 @@ forExample();</pre>
 
         <tr>
             
-                <td class="name"><code>childList</code></td>
+                <td class="name"><code>UP</code></td>
             
 
             <td class="type">
@@ -2428,7 +2115,7 @@ forExample();</pre>
 
         <tr>
             
-                <td class="name"><code>attributes</code></td>
+                <td class="name"><code>DOWN</code></td>
             
 
             <td class="type">
@@ -2452,31 +2139,7 @@ forExample();</pre>
 
         <tr>
             
-                <td class="name"><code>characterData</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>subtree</code></td>
+                <td class="name"><code>UNKNOWN</code></td>
             
 
             <td class="type">
@@ -2534,8 +2197,8 @@ forExample();</pre>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="observer_MutationObserver.ts.html">observer/MutationObserver.ts</a>,
-				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-6">line 6</a>
+				<a href="observer_IntersectionObserver.ts.html">observer/IntersectionObserver.ts</a>,
+				 <a href="observer_IntersectionObserver.ts.html#sunlight-1-line-23">line 23</a>
 			</li>
 		</ul>
 	</dd>
@@ -2543,13 +2206,6 @@ forExample();</pre>
 
 	
 
-	
-	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
-	<dd class="tag-see">
-		<ul>
-			<li><a href="https://developer.mozilla.org/ko/docs/Web/API/MutationObserver#MutationObserverInit">https://developer.mozilla.org/ko/docs/Web/API/MutationObserver#MutationObserverInit</a></li>
-			</ul>
-	</dd>
 	
 
 	
@@ -2569,7 +2225,7 @@ forExample();</pre>
             
 <hr>
 <dt>
-    <h4 class="name" id="event:MUTATION_EVENTS">MUTATION_EVENTS</h4>
+    <h4 class="name" id="event:INTERSECTION_EVENTS">INTERSECTION_EVENTS</h4>
     
     
 </dt>
@@ -2577,7 +2233,7 @@ forExample();</pre>
 
     
     <div class="description">
-        <p>MutationEvent Types</p>
+        <p>IntersectionEvent Types</p>
     </div>
     
 
@@ -2618,102 +2274,6 @@ forExample();</pre>
 
         <tr>
             
-                <td class="name"><code>CHANGE_CHILD_LIST</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>childList 변경 시점</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>CHANGE_SUBTREE</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>subtree 변경 시점</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>CHANGE_ATTRIBUTES</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>attributes 변경 시점</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>CHANGE_CHARACTER_DATA</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>data 변경 시점</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
                 <td class="name"><code>CHANGE</code></td>
             
 
@@ -2731,31 +2291,7 @@ forExample();</pre>
 
             
 
-            <td class="description last"><p>기타 변경 시점</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>WILD_CARD</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>모든 변경 시점</p></td>
+            <td class="description last"><p>변경 시점</p></td>
         </tr>
 
     
@@ -2796,8 +2332,8 @@ forExample();</pre>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="observer_MutationObserver.ts.html">observer/MutationObserver.ts</a>,
-				 <a href="observer_MutationObserver.ts.html#sunlight-1-line-30">line 30</a>
+				<a href="observer_IntersectionObserver.ts.html">observer/IntersectionObserver.ts</a>,
+				 <a href="observer_IntersectionObserver.ts.html#sunlight-1-line-7">line 7</a>
 			</li>
 		</ul>
 	</dd>
@@ -2817,11 +2353,6 @@ forExample();</pre>
 
     
 
-    
-    <h5>Listeners of This Event:</h5>
-    <ul>
-        <li><a href="MutationObserver.html#on">MutationObserver#on</a></li>
-    </ul>
     
 
     

@@ -40,28 +40,28 @@
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="EventEmitter.html">EventEmitter</a></li><li><a href="MutationObserver.html">MutationObserver</a></li><li><a href="VisibilityChangeObserver.html">VisibilityChangeObserver</a></li>
+					<li><a href="EventEmitter.html">EventEmitter</a></li><li><a href="IntersectionObserver.html">IntersectionObserver</a></li><li><a href="MutationObserver.html">MutationObserver</a></li><li><a href="VisibilityChangeObserver.html">VisibilityChangeObserver</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="events.list.html" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="MutationObserver.html#event:MUTATION_EVENTS">MutationObserver#event:MUTATION_EVENTS</a></li><li><a href="VisibilityChangeObserver.html#event:VISIBILITY_EVENTS">VisibilityChangeObserver#event:VISIBILITY_EVENTS</a></li>
+					<li><a href="IntersectionObserver.html#event:INTERSECTION_EVENTS">IntersectionObserver#event:INTERSECTION_EVENTS</a></li><li><a href="MutationObserver.html#event:MUTATION_EVENTS">MutationObserver#event:MUTATION_EVENTS</a></li><li><a href="VisibilityChangeObserver.html#event:VISIBILITY_EVENTS">VisibilityChangeObserver#event:VISIBILITY_EVENTS</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="interfaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Interfaces<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="IAgentType.html">IAgentType</a></li><li><a href="IBrowserAgents.html">IBrowserAgents</a></li><li><a href="IBrowserType.html">IBrowserType</a></li><li><a href="IEvent.html">IEvent</a></li><li><a href="IMutationObserverExtOption.html">IMutationObserverExtOption</a></li><li><a href="IMutationObserverInit.html">IMutationObserverInit</a></li><li><a href="IPassive.html">IPassive</a></li><li><a href="IRatio.html">IRatio</a></li><li><a href="IRatioParams.html">IRatioParams</a></li><li><a href="IVisibilityStatus.html">IVisibilityStatus</a></li>
+					<li><a href="IAgentType.html">IAgentType</a></li><li><a href="IBrowserType.html">IBrowserType</a></li><li><a href="IEvent.html">IEvent</a></li><li><a href="IIntersectionChangeData.html">IIntersectionChangeData</a></li><li><a href="IIntersectionObserverExtOption.html">IIntersectionObserverExtOption</a></li><li><a href="IBrowserAgents.html">IBrowserAgents</a></li><li><a href="IMutationObserverInit.html">IMutationObserverInit</a></li><li><a href="IPassive.html">IPassive</a></li><li><a href="IRatio.html">IRatio</a></li><li><a href="IRatioParams.html">IRatioParams</a></li><li><a href="IVisibilityStatus.html">IVisibilityStatus</a></li><li><a href="IMutationObserverExtOption.html">IMutationObserverExtOption</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="global.html#event">event</a></li><li><a href="global.html#observer">observer</a></li>
+					<li><a href="global.html#event">event</a></li><li><a href="global.html#INTERSECTION_EVENTS">INTERSECTION_EVENTS</a></li><li><a href="global.html#observer">observer</a></li>
 				</ul>
 			</li>
 			
@@ -99,6 +99,7 @@
     <article>
         <pre
             class="sunlight-highlight-javascript linenums">import { TypeVoidFunction } from '../types';
+import { INTERSECTION_DIRECTIONS } from './IntersectionObserver';
 
 /**
  * pure MutationObserver init options
@@ -154,6 +155,74 @@ export interface IVisibilityStatus {
   isHidden: boolean;
   isShow: boolean;
 };
+
+
+/**
+ * @typedef IntersectionObserverInit
+ * @alias IntersectionObserverInit
+ * @property {Element | null} [root]
+ * @property {String} [rootMargin]
+ * @property {Number | Number[]} [threshold]
+ */
+// for jsdoc
+
+/**
+ * @typedef IntersectionObserverEntry
+ * @alias IntersectionObserverEntry
+ * @property {DOMRectReadOnly} boundingClientRect
+ * @property {Number} intersectionRatio
+ * @property {DOMRectReadOnly} intersectionRect
+ * @property {Boolean} isIntersecting
+ * @property {DOMRectReadOnly | null} rootBounds
+ * @property {Element} target
+ * @property {Number} time
+ */
+// for jsdoc
+
+/**
+ * @callback callback
+ * @param {IIntersectionChangeData} changeData
+ */
+// for jsdoc
+
+/**
+ * IntersectionObserver init options
+ * @memberof IntersectionObserver
+ * @alias IIntersectionObserverExtOption
+ * @interface
+ * @property {Element} target - 감지할 element
+ * @property {Number} [visibleRatio] - 이벤트 visibleRatio 값
+ * @property {Number} [throttle] - 이벤트 throttle 값
+ * @property {callback} [callback] - 이벤트 callback
+ * @property {IntersectionObserverInit} [options] - 세부 IntersectionObserver options
+ * @see https://developer.mozilla.org/ko/docs/Web/API/IntersectionObserver/IntersectionObserver#%EB%A7%A4%EA%B0%9C%EB%B3%80%EC%88%98
+ */
+export interface IIntersectionObserverExtOption {
+  target: Element;
+  visibleRatio?: number;
+  throttle?: number;
+  callback?: (changeData: IIntersectionChangeData) => void;
+  options?: IntersectionObserverInit;
+};
+
+/**
+ * IntersectionObserver ChangeData
+ * @memberof IntersectionObserver
+ * @alias IIntersectionChangeData
+ * @interface
+ * @property {Element} currentTarget
+ * @property {IntersectionObserverEntry} entry
+ * @property {Number} intersectionRatio
+ * @property {Boolean} isVisible
+ * @property {INTERSECTION_DIRECTIONS} direction
+ */
+export interface IIntersectionChangeData {
+  currentTarget: Element;
+  entry: IntersectionObserverEntry;
+  intersectionRatio: number;
+  isVisible: boolean;
+  direction: INTERSECTION_DIRECTIONS;
+};
 </pre>
     </article>
 </section>
@@ -199,7 +268,7 @@ export interface IVisibilityStatus {
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 0.3.7</a>
 	
-		on 2020-07-13
+		on 2020-07-14
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
