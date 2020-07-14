@@ -10,8 +10,8 @@ describe('# @nonoll/code-snippet/observer/VisibilityChangeObserver Spec Test', (
     expect(observer).toBeTruthy();
   });
 
-  it('# 브라우저가 활성 상태일 경우, isSupportVisibilityChange 값이 true 가 된다.', () => {
-    const result = VisibilityChangeObserver.isSupportVisibilityChange();
+  it('# VisibilityChange 지원 여부, 지원일 경우 isSupport 값이 true 가 된다.', () => {
+    const result = VisibilityChangeObserver.isSupport();
     expect(result).toEqual(true);
   });
 
