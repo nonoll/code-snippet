@@ -1,4 +1,5 @@
 import { TypeVoidFunction } from '../types';
+import { INTERSECTION_DIRECTIONS } from './IntersectionObserver';
 
 /**
  * pure MutationObserver init options
@@ -53,4 +54,72 @@ export interface IMutationObserverExtOption {
 export interface IVisibilityStatus {
   isHidden: boolean;
   isShow: boolean;
+};
+
+
+/**
+ * @typedef IntersectionObserverInit
+ * @alias IntersectionObserverInit
+ * @property {Element | null} [root]
+ * @property {String} [rootMargin]
+ * @property {Number | Number[]} [threshold]
+ */
+// for jsdoc
+
+/**
+ * @typedef IntersectionObserverEntry
+ * @alias IntersectionObserverEntry
+ * @property {DOMRectReadOnly} boundingClientRect
+ * @property {Number} intersectionRatio
+ * @property {DOMRectReadOnly} intersectionRect
+ * @property {Boolean} isIntersecting
+ * @property {DOMRectReadOnly | null} rootBounds
+ * @property {Element} target
+ * @property {Number} time
+ */
+// for jsdoc
+
+/**
+ * @callback callback
+ * @param {IIntersectionChangeData} changeData
+ */
+// for jsdoc
+
+/**
+ * IntersectionObserver init options
+ * @memberof IntersectionObserver
+ * @alias IIntersectionObserverExtOption
+ * @interface
+ * @property {Element} target - 감지할 element
+ * @property {Number} [visibleRatio] - 이벤트 visibleRatio 값
+ * @property {Number} [throttle] - 이벤트 throttle 값
+ * @property {callback} [callback] - 이벤트 callback
+ * @property {IntersectionObserverInit} [options] - 세부 IntersectionObserver options
+ * @see https://developer.mozilla.org/ko/docs/Web/API/IntersectionObserver/IntersectionObserver#%EB%A7%A4%EA%B0%9C%EB%B3%80%EC%88%98
+ */
+export interface IIntersectionObserverExtOption {
+  target: Element;
+  visibleRatio?: number;
+  throttle?: number;
+  callback?: (changeData: IIntersectionChangeData) => void;
+  options?: IntersectionObserverInit;
+};
+
+/**
+ * IntersectionObserver ChangeData
+ * @memberof IntersectionObserver
+ * @alias IIntersectionChangeData
+ * @interface
+ * @property {Element} currentTarget
+ * @property {IntersectionObserverEntry} entry
+ * @property {Number} intersectionRatio
+ * @property {Boolean} isVisible
+ * @property {INTERSECTION_DIRECTIONS} direction
+ */
+export interface IIntersectionChangeData {
+  currentTarget: Element;
+  entry: IntersectionObserverEntry;
+  intersectionRatio: number;
+  isVisible: boolean;
+  direction: INTERSECTION_DIRECTIONS;
 };
