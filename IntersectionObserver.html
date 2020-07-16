@@ -40,21 +40,21 @@
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="EventEmitter.html">EventEmitter</a></li><li><a href="IntersectionObserver.html">IntersectionObserver</a></li><li><a href="MutationObserver.html">MutationObserver</a></li><li><a href="VisibilityChangeObserver.html">VisibilityChangeObserver</a></li>
+					<li><a href="EventEmitter.html">EventEmitter</a></li><li><a href="IntersectionObserver.html">IntersectionObserver</a></li><li><a href="MutationObserver.html">MutationObserver</a></li><li><a href="PrefersColorSchemeObserver.html">PrefersColorSchemeObserver</a></li><li><a href="VisibilityChangeObserver.html">VisibilityChangeObserver</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="events.list.html" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="IntersectionObserver.html#event:INTERSECTION_EVENTS">IntersectionObserver#event:INTERSECTION_EVENTS</a></li><li><a href="MutationObserver.html#event:MUTATION_EVENTS">MutationObserver#event:MUTATION_EVENTS</a></li><li><a href="VisibilityChangeObserver.html#event:VISIBILITY_EVENTS">VisibilityChangeObserver#event:VISIBILITY_EVENTS</a></li>
+					<li><a href="IntersectionObserver.html#event:INTERSECTION_EVENTS">IntersectionObserver#event:INTERSECTION_EVENTS</a></li><li><a href="MutationObserver.html#event:MUTATION_EVENTS">MutationObserver#event:MUTATION_EVENTS</a></li><li><a href="PrefersColorSchemeObserver.html#event:PREFERS_COLOR_SCHEME_EVENTS">PrefersColorSchemeObserver#event:PREFERS_COLOR_SCHEME_EVENTS</a></li><li><a href="VisibilityChangeObserver.html#event:VISIBILITY_EVENTS">VisibilityChangeObserver#event:VISIBILITY_EVENTS</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="interfaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Interfaces<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="IAgentType.html">IAgentType</a></li><li><a href="IBrowserType.html">IBrowserType</a></li><li><a href="IEvent.html">IEvent</a></li><li><a href="IIntersectionChangeData.html">IIntersectionChangeData</a></li><li><a href="IIntersectionObserverExtOption.html">IIntersectionObserverExtOption</a></li><li><a href="IBrowserAgents.html">IBrowserAgents</a></li><li><a href="IMutationObserverInit.html">IMutationObserverInit</a></li><li><a href="IPassive.html">IPassive</a></li><li><a href="IRatio.html">IRatio</a></li><li><a href="IRatioParams.html">IRatioParams</a></li><li><a href="IVisibilityStatus.html">IVisibilityStatus</a></li><li><a href="IMutationObserverExtOption.html">IMutationObserverExtOption</a></li>
+					<li><a href="IAgentType.html">IAgentType</a></li><li><a href="IEvent.html">IEvent</a></li><li><a href="IIntersectionChangeData.html">IIntersectionChangeData</a></li><li><a href="IIntersectionObserverExtOption.html">IIntersectionObserverExtOption</a></li><li><a href="IBrowserType.html">IBrowserType</a></li><li><a href="IMutationObserverInit.html">IMutationObserverInit</a></li><li><a href="IPassive.html">IPassive</a></li><li><a href="IPrefersColorSchemeStatus.html">IPrefersColorSchemeStatus</a></li><li><a href="IRatio.html">IRatio</a></li><li><a href="IRatioParams.html">IRatioParams</a></li><li><a href="IBrowserAgents.html">IBrowserAgents</a></li><li><a href="IVisibilityStatus.html">IVisibilityStatus</a></li><li><a href="IMutationObserverExtOption.html">IMutationObserverExtOption</a></li>
 				</ul>
 			</li>
 			
@@ -551,6 +551,400 @@
             
 <hr>
 <dt>
+    <h4 class="name" id=".getIntersectionEntry"><span class="type-signature">&lt;static> </span>getIntersectionEntry(initParams)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>element 가 이미 노출된 경우 등, IntersectionObserver 등록으로 판단이 어려울 경우<br>
+IntersectionObserver.getIntersectionEntry 를 이용하여 target 의 노출 여부를 판단</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>initParams</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Partial.&lt;<a href="IIntersectionObserverExtOption.html">IIntersectionObserverExtOption</a>></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6 class="method-params-label method-subparams-label">Properties</h6>
+                
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>target</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Element</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>visibleRatio</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>throttle</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    300
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+|
+
+<span class="param-type">null</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <a href="module-functions.html">noop</a>
+                
+                </td>
+            
+
+            <td class="description last"><p>callback function</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#IntersectionObserverInit">IntersectionObserverInit</a></span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    {}
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="observer_IntersectionObserver.ts.html">observer/IntersectionObserver.ts</a>,
+				 <a href="observer_IntersectionObserver.ts.html#sunlight-1-line-387">line 387</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="IIntersectionChangeData.html">IIntersectionChangeData</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">.. TODO</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
     <h4 class="name" id="attach"><span class="type-signature"></span>attach()</h4>
     
     
@@ -606,7 +1000,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="observer_IntersectionObserver.ts.html">observer/IntersectionObserver.ts</a>,
-				 <a href="observer_IntersectionObserver.ts.html#sunlight-1-line-409">line 409</a>
+				 <a href="observer_IntersectionObserver.ts.html#sunlight-1-line-424">line 424</a>
 			</li>
 		</ul>
 	</dd>
@@ -667,7 +1061,7 @@
 
     
     <div class="description">
-        <p>destory</p>
+        <p>destroy</p>
     </div>
     
 
@@ -714,7 +1108,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="observer_IntersectionObserver.ts.html">observer/IntersectionObserver.ts</a>,
-				 <a href="observer_IntersectionObserver.ts.html#sunlight-1-line-429">line 429</a>
+				 <a href="observer_IntersectionObserver.ts.html#sunlight-1-line-444">line 444</a>
 			</li>
 		</ul>
 	</dd>
@@ -822,7 +1216,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="observer_IntersectionObserver.ts.html">observer/IntersectionObserver.ts</a>,
-				 <a href="observer_IntersectionObserver.ts.html#sunlight-1-line-419">line 419</a>
+				 <a href="observer_IntersectionObserver.ts.html#sunlight-1-line-434">line 434</a>
 			</li>
 		</ul>
 	</dd>
@@ -2412,7 +2806,7 @@
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 0.3.7</a>
 	
-		on 2020-07-14
+		on 2020-07-16
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

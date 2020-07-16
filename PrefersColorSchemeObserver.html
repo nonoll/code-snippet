@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>@nonoll/code-snippet Module: browser</title>
+	<title>@nonoll/code-snippet Class: PrefersColorSchemeObserver</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -93,10 +93,15 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Module: browser</h1>
+	<h1 class="page-title">Class: PrefersColorSchemeObserver</h1>
 <section>
 
 <header>
+    
+        <h2>
+        PrefersColorSchemeObserver
+        </h2>
+        
     
 </header>
 
@@ -105,8 +110,28 @@
     <div class="container-overview">
     
         
+<hr>
+<dt>
+    <h4 class="name" id="PrefersColorSchemeObserver"><span class="type-signature"></span>new PrefersColorSchemeObserver()</h4>
+    
+    
+</dt>
+<dd>
 
-        
+    
+    <div class="description">
+        <p>prefers-color-scheme 상태 변화를 감지</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
 <dl class="details">
     
 
@@ -141,8 +166,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="browser_index.ts.html">browser/index.ts</a>,
-				 <a href="browser_index.ts.html#sunlight-1-line-1">line 1</a>
+				<a href="observer_PrefersColorSchemeObserver.ts.html">observer/PrefersColorSchemeObserver.ts</a>,
+				 <a href="observer_PrefersColorSchemeObserver.ts.html#sunlight-1-line-40">line 40</a>
 			</li>
 		</ul>
 	</dd>
@@ -156,9 +181,62 @@
 </dl>
 
 
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Throws:</h5>
+    
+            
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        <p>browser 에서 지원하지 못하는 경우 - throw new Error('PrefersColorScheme 지원되지 않는 브라우저입니다.');</p>
+        </div>
+    </dt>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+
+            </dd>
+        </dl>
+    </dt>
+</dl>
+
+
         
+
+    
+
+    
+</dd>
+
     
     </div>
+
+    
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li><a href="EventEmitter.html">EventEmitter</a></li>
+    </ul>
+
 
     
 
@@ -179,7 +257,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id=".browserType"><span class="type-signature">&lt;static> </span>browserType()</h4>
+    <h4 class="name" id="destroy"><span class="type-signature"></span>destroy()</h4>
     
     
 </dt>
@@ -187,7 +265,7 @@
 
     
     <div class="description">
-        <p>AOS, IOS - type, version 정보 반환</p>
+        <p>destroy</p>
     </div>
     
 
@@ -233,8 +311,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="browser_uaParser.ts.html">browser/uaParser.ts</a>,
-				 <a href="browser_uaParser.ts.html#sunlight-1-line-56">line 56</a>
+				<a href="observer_PrefersColorSchemeObserver.ts.html">observer/PrefersColorSchemeObserver.ts</a>,
+				 <a href="observer_PrefersColorSchemeObserver.ts.html#sunlight-1-line-107">line 107</a>
 			</li>
 		</ul>
 	</dd>
@@ -270,7 +348,7 @@
     </dt>
     <dd>
         
-<span class="param-type"><a href="IBrowserType.html">IBrowserType</a></span>
+<span class="param-type"><a href="PrefersColorSchemeObserver.html">PrefersColorSchemeObserver</a></span>
 
 
 
@@ -281,21 +359,13 @@
         
 
     
-        <h5>Example</h5>
-        
-    <pre class="sunlight-highlight-javascript">import { browserType } from &#x27;@nonoll/code-snippet/browser&#x27;;
-
-console.log(browserType()); // { type, version }</pre>
-
-
-    
 </dd>
 
         
             
 <hr>
 <dt>
-    <h4 class="name" id=".getPassiveOption"><span class="type-signature">&lt;static> </span>getPassiveOption()</h4>
+    <h4 class="name" id="emit"><span class="type-signature"></span>emit(eventName, values)</h4>
     
     
 </dt>
@@ -303,7 +373,7 @@ console.log(browserType()); // { type, version }</pre>
 
     
     <div class="description">
-        <p>실행된 browser 에서 지원하는 passive 옵션 값 반환</p>
+        <p>이벤트 전파</p>
     </div>
     
 
@@ -312,6 +382,100 @@ console.log(browserType()); // { type, version }</pre>
     
 
     
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>eventName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>values</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;any></span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                    &lt;repeatable><br>
+                
+                </td>
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
     
 
     
@@ -323,7 +487,21 @@ console.log(browserType()); // { type, version }</pre>
 	
 
 	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="EventEmitter.html#emit">EventEmitter#emit</a>
+			</li>
+		</ul>
+	</dd>
+	
 
+    
+    <dt class="tag-overrides">Overrides:</dt>
+    <dd class="tag-overrides"><ul class="dummy"><li>
+        <a href="EventEmitter.html#emit">EventEmitter#emit</a>
+    </li></ul></dd>
     
 
     
@@ -349,8 +527,8 @@ console.log(browserType()); // { type, version }</pre>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="browser_isSupportPassive.ts.html">browser/isSupportPassive.ts</a>,
-				 <a href="browser_isSupportPassive.ts.html#sunlight-1-line-44">line 44</a>
+				<a href="event_EventEmitter.ts.html">event/EventEmitter.ts</a>,
+				 <a href="event_EventEmitter.ts.html#sunlight-1-line-141">line 141</a>
 			</li>
 		</ul>
 	</dd>
@@ -358,13 +536,6 @@ console.log(browserType()); // { type, version }</pre>
 
 	
 
-	
-	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
-	<dd class="tag-see">
-		<ul>
-			<li><a href="https://developers.google.com/web/tools/lighthouse/audits/passive-event-listeners?hl=ko">https://developers.google.com/web/tools/lighthouse/audits/passive-event-listeners?hl=ko</a></li>
-			</ul>
-	</dd>
 	
 
 	
@@ -393,10 +564,7 @@ console.log(browserType()); // { type, version }</pre>
     </dt>
     <dd>
         
-<span class="param-type"><a href="IPassive.html">IPassive</a></span>
-|
-
-<span class="param-type">Boolean</span>
+<span class="param-type"><a href="EventEmitter.html">EventEmitter</a></span>
 
 
 
@@ -407,20 +575,13 @@ console.log(browserType()); // { type, version }</pre>
         
 
     
-        <h5>Example</h5>
-        
-    <pre class="sunlight-highlight-javascript">import { getPassiveOption } from &#x27;@nonoll/code-snippet/browser&#x27;;
-console.log(getPassiveOption()); // IPassive or false</pre>
-
-
-    
 </dd>
 
         
             
 <hr>
 <dt>
-    <h4 class="name" id=".isAOS"><span class="type-signature">&lt;static> </span>isAOS()</h4>
+    <h4 class="name" id="fire"><span class="type-signature"></span>fire(eventName, values)</h4>
     
     
 </dt>
@@ -428,7 +589,7 @@ console.log(getPassiveOption()); // IPassive or false</pre>
 
     
     <div class="description">
-        <p>browser - AOS 유무 반환</p>
+        <p>이벤트 전파</p>
     </div>
     
 
@@ -437,6 +598,80 @@ console.log(getPassiveOption()); // IPassive or false</pre>
     
 
     
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>eventName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>values</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">any</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
     
 
     
@@ -448,7 +683,21 @@ console.log(getPassiveOption()); // IPassive or false</pre>
 	
 
 	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="EventEmitter.html#fire">EventEmitter#fire</a>
+			</li>
+		</ul>
+	</dd>
+	
 
+    
+    <dt class="tag-overrides">Overrides:</dt>
+    <dd class="tag-overrides"><ul class="dummy"><li>
+        <a href="EventEmitter.html#fire">EventEmitter#fire</a>
+    </li></ul></dd>
     
 
     
@@ -474,8 +723,8 @@ console.log(getPassiveOption()); // IPassive or false</pre>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="browser_isAOS.ts.html">browser/isAOS.ts</a>,
-				 <a href="browser_isAOS.ts.html#sunlight-1-line-10">line 10</a>
+				<a href="event_EventEmitter.ts.html">event/EventEmitter.ts</a>,
+				 <a href="event_EventEmitter.ts.html#sunlight-1-line-157">line 157</a>
 			</li>
 		</ul>
 	</dd>
@@ -511,7 +760,7 @@ console.log(getPassiveOption()); // IPassive or false</pre>
     </dt>
     <dd>
         
-<span class="param-type">Boolean</span>
+<span class="param-type"><a href="EventEmitter.html">EventEmitter</a></span>
 
 
 
@@ -522,20 +771,13 @@ console.log(getPassiveOption()); // IPassive or false</pre>
         
 
     
-        <h5>Example</h5>
-        
-    <pre class="sunlight-highlight-javascript">import { isAOS } from &#x27;@nonoll/code-snippet/browser&#x27;;
-console.log(isAOS()); // true or false</pre>
-
-
-    
 </dd>
 
         
             
 <hr>
 <dt>
-    <h4 class="name" id=".isCHROME"><span class="type-signature">&lt;static> </span>isCHROME()</h4>
+    <h4 class="name" id="off"><span class="type-signature"></span>off(eventName [, listener])</h4>
     
     
 </dt>
@@ -543,7 +785,7 @@ console.log(isAOS()); // true or false</pre>
 
     
     <div class="description">
-        <p>browser - CHROME 유무 반환</p>
+        <p>이벤트 감지 해제</p>
     </div>
     
 
@@ -552,6 +794,100 @@ console.log(isAOS()); // true or false</pre>
     
 
     
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>eventName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>listener</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="module-types.html">TypeVoidFunction</a></span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
     
 
     
@@ -563,7 +899,21 @@ console.log(isAOS()); // true or false</pre>
 	
 
 	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="EventEmitter.html#off">EventEmitter#off</a>
+			</li>
+		</ul>
+	</dd>
+	
 
+    
+    <dt class="tag-overrides">Overrides:</dt>
+    <dd class="tag-overrides"><ul class="dummy"><li>
+        <a href="EventEmitter.html#off">EventEmitter#off</a>
+    </li></ul></dd>
     
 
     
@@ -589,8 +939,8 @@ console.log(isAOS()); // true or false</pre>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="browser_isCHROME.ts.html">browser/isCHROME.ts</a>,
-				 <a href="browser_isCHROME.ts.html#sunlight-1-line-10">line 10</a>
+				<a href="event_EventEmitter.ts.html">event/EventEmitter.ts</a>,
+				 <a href="event_EventEmitter.ts.html#sunlight-1-line-106">line 106</a>
 			</li>
 		</ul>
 	</dd>
@@ -626,7 +976,7 @@ console.log(isAOS()); // true or false</pre>
     </dt>
     <dd>
         
-<span class="param-type">Boolean</span>
+<span class="param-type"><a href="EventEmitter.html">EventEmitter</a></span>
 
 
 
@@ -637,20 +987,13 @@ console.log(isAOS()); // true or false</pre>
         
 
     
-        <h5>Example</h5>
-        
-    <pre class="sunlight-highlight-javascript">import { isCHROME } from &#x27;@nonoll/code-snippet/browser&#x27;;
-console.log(isCHROME()); // true or false</pre>
-
-
-    
 </dd>
 
         
             
 <hr>
 <dt>
-    <h4 class="name" id=".isIOS"><span class="type-signature">&lt;static> </span>isIOS()</h4>
+    <h4 class="name" id="on"><span class="type-signature"></span>on(eventName [, listener] [, context])</h4>
     
     
 </dt>
@@ -658,122 +1001,7 @@ console.log(isCHROME()); // true or false</pre>
 
     
     <div class="description">
-        <p>browser - IOS 유무 반환</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="browser_isIOS.ts.html">browser/isIOS.ts</a>,
-				 <a href="browser_isIOS.ts.html#sunlight-1-line-10">line 10</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Boolean</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-        <h5>Example</h5>
-        
-    <pre class="sunlight-highlight-javascript">import { isIOS } from &#x27;@nonoll/code-snippet/browser&#x27;;
-console.log(isIOS()); // true or false</pre>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id=".uaParser"><span class="type-signature">&lt;static> </span>uaParser(parsingType [, start] [, end] [, ua])</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>uaParser</p>
+        <p>이벤트 감지 등록</p>
     </div>
     
 
@@ -812,13 +1040,13 @@ console.log(isIOS()); // true or false</pre>
 
         <tr>
             
-                <td class="name"><code>parsingType</code></td>
+                <td class="name"><code>eventName</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">T</span>
+<span class="param-type">string</span>
 
 
 
@@ -841,20 +1069,20 @@ console.log(isIOS()); // true or false</pre>
                 </td>
             
 
-            <td class="description last"><p>parsing 타입</p></td>
+            <td class="description last"></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>start</code></td>
+                <td class="name"><code>listener</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Number</span>
+<span class="param-type"><a href="module-types.html">TypeVoidFunction</a></span>
 
 
 
@@ -876,25 +1104,25 @@ console.log(isIOS()); // true or false</pre>
             
                 <td class="default">
                 
-                    1
+                    <a href="module-functions.html">noop</a>
                 
                 </td>
             
 
-            <td class="description last"><p>version slice - start index</p></td>
+            <td class="description last"></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>end</code></td>
+                <td class="name"><code>context</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Number</span>
+<span class="param-type">*</span>
 
 
 
@@ -915,48 +1143,6 @@ console.log(isIOS()); // true or false</pre>
 
             
                 <td class="default">
-                
-                    1
-                
-                </td>
-            
-
-            <td class="description last"><p>version slice - end index</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>ua</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    window.navigator.userAgent
                 
                 </td>
             
@@ -979,7 +1165,21 @@ console.log(isIOS()); // true or false</pre>
 	
 
 	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="EventEmitter.html#on">EventEmitter#on</a>
+			</li>
+		</ul>
+	</dd>
+	
 
+    
+    <dt class="tag-overrides">Overrides:</dt>
+    <dd class="tag-overrides"><ul class="dummy"><li>
+        <a href="EventEmitter.html#on">EventEmitter#on</a>
+    </li></ul></dd>
     
 
     
@@ -1005,8 +1205,8 @@ console.log(isIOS()); // true or false</pre>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="browser_uaParser.ts.html">browser/uaParser.ts</a>,
-				 <a href="browser_uaParser.ts.html#sunlight-1-line-22">line 22</a>
+				<a href="event_EventEmitter.ts.html">event/EventEmitter.ts</a>,
+				 <a href="event_EventEmitter.ts.html#sunlight-1-line-94">line 94</a>
 			</li>
 		</ul>
 	</dd>
@@ -1042,7 +1242,7 @@ console.log(isIOS()); // true or false</pre>
     </dt>
     <dd>
         
-<span class="param-type">R</span>
+<span class="param-type"><a href="EventEmitter.html">EventEmitter</a></span>
 
 
 
@@ -1053,25 +1253,13 @@ console.log(isIOS()); // true or false</pre>
         
 
     
-        <h5>Example</h5>
-        
-    <pre class="sunlight-highlight-javascript">import { uaParser, IBrowserType } from &#x27;@nonoll/code-snippet/browser&#x27;;
-
-const iosChromeParser = (): IBrowserType =&gt; {
-  return uaParser&lt;{CHROME: string}, IBrowserType&gt;({CHROME: &#x27;CriOS\/([0-9]+)?\\.?([0-9]+)\\.?([0-9]+)\\.?([0-9]+)?&#x27;}, 1, 6);
-};
-
-console.log(iosChromeParser()); // { type, version }</pre>
-
-
-    
 </dd>
 
         
             
 <hr>
 <dt>
-    <h4 class="name" id=".vendorPrefix"><span class="type-signature">&lt;static> </span>vendorPrefix()</h4>
+    <h4 class="name" id="once"><span class="type-signature"></span>once(eventName [, listener] [, context])</h4>
     
     
 </dt>
@@ -1079,7 +1267,7 @@ console.log(iosChromeParser()); // { type, version }</pre>
 
     
     <div class="description">
-        <p>browser - vendorPrefix 반환</p>
+        <p>이벤트 1회 감지 등록</p>
     </div>
     
 
@@ -1088,6 +1276,150 @@ console.log(iosChromeParser()); // { type, version }</pre>
     
 
     
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>eventName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>listener</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="module-types.html">TypeVoidFunction</a></span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <a href="module-functions.html">noop</a>
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
     
 
     
@@ -1099,7 +1431,21 @@ console.log(iosChromeParser()); // { type, version }</pre>
 	
 
 	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="EventEmitter.html#once">EventEmitter#once</a>
+			</li>
+		</ul>
+	</dd>
+	
 
+    
+    <dt class="tag-overrides">Overrides:</dt>
+    <dd class="tag-overrides"><ul class="dummy"><li>
+        <a href="EventEmitter.html#once">EventEmitter#once</a>
+    </li></ul></dd>
     
 
     
@@ -1125,8 +1471,8 @@ console.log(iosChromeParser()); // { type, version }</pre>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="browser_vendorPrefix.ts.html">browser/vendorPrefix.ts</a>,
-				 <a href="browser_vendorPrefix.ts.html#sunlight-1-line-13">line 13</a>
+				<a href="event_EventEmitter.ts.html">event/EventEmitter.ts</a>,
+				 <a href="event_EventEmitter.ts.html#sunlight-1-line-125">line 125</a>
 			</li>
 		</ul>
 	</dd>
@@ -1134,13 +1480,6 @@ console.log(iosChromeParser()); // { type, version }</pre>
 
 	
 
-	
-	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
-	<dd class="tag-see">
-		<ul>
-			<li><a href="https://davidwalsh.name/vendor-prefix">https://davidwalsh.name/vendor-prefix</a></li>
-			</ul>
-	</dd>
 	
 
 	
@@ -1169,7 +1508,7 @@ console.log(iosChromeParser()); // { type, version }</pre>
     </dt>
     <dd>
         
-<span class="param-type">IVendorPrefix</span>
+<span class="param-type"><a href="EventEmitter.html">EventEmitter</a></span>
 
 
 
@@ -1178,13 +1517,6 @@ console.log(iosChromeParser()); // { type, version }</pre>
 
 
         
-
-    
-        <h5>Example</h5>
-        
-    <pre class="sunlight-highlight-javascript">import { vendorPrefix } from &#x27;@nonoll/code-snippet/browser&#x27;;
-console.log(vendorPrefix()); // {dom: &quot;Webkit&quot;, lowercase: &quot;webkit&quot;, css: &quot;-webkit-&quot;, js: &quot;Webkit&quot;}</pre>
-
 
     
 </dd>
@@ -1198,8 +1530,8 @@ console.log(vendorPrefix()); // {dom: &quot;Webkit&quot;, lowercase: &quot;webki
         <dl>
                 
 <hr>
-<dt class="name" id="BROWSER_AGENTS">
-    <h4 id="BROWSER_AGENTS">BROWSER_AGENTS</h4>
+<dt class="name" id="PREFERS_COLOR_SCHEME">
+    <h4 id="PREFERS_COLOR_SCHEME">PREFERS_COLOR_SCHEME</h4>
 
     
 </dt>
@@ -1249,7 +1581,7 @@ console.log(vendorPrefix()); // {dom: &quot;Webkit&quot;, lowercase: &quot;webki
 
         <tr>
             
-                <td class="name"><code>AOS</code></td>
+                <td class="name"><code>LIGHT</code></td>
             
 
             <td class="type">
@@ -1266,14 +1598,14 @@ console.log(vendorPrefix()); // {dom: &quot;Webkit&quot;, lowercase: &quot;webki
 
             
 
-            <td class="description last"><p>user agent pattern</p></td>
+            <td class="description last"></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>IOS</code></td>
+                <td class="name"><code>DARK</code></td>
             
 
             <td class="type">
@@ -1290,7 +1622,7 @@ console.log(vendorPrefix()); // {dom: &quot;Webkit&quot;, lowercase: &quot;webki
 
             
 
-            <td class="description last"><p>user agent pattern</p></td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -1331,214 +1663,8 @@ console.log(vendorPrefix()); // {dom: &quot;Webkit&quot;, lowercase: &quot;webki
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="browser_types.ts.html">browser/types.ts</a>,
-				 <a href="browser_types.ts.html#sunlight-1-line-1">line 1</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-            
-                
-<hr>
-<dt class="name" id=".IVendorPrefix">
-    <h4 id=".IVendorPrefix">IVendorPrefix</h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>IVendorPrefix</p>
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">TSInterface</span>
-
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    <dl>
-
-<table class="props table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>dom</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>dom 기준, prefix</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>lowercase</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>소문자로 반환</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>css</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>css 기준, prefix</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>js</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>js 기준, prefix</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-</dl>
-
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="browser_types.ts.html">browser/types.ts</a>,
-				 <a href="browser_types.ts.html#sunlight-1-line-63">line 63</a>
+				<a href="observer_PrefersColorSchemeObserver.ts.html">observer/PrefersColorSchemeObserver.ts</a>,
+				 <a href="observer_PrefersColorSchemeObserver.ts.html#sunlight-1-line-4">line 4</a>
 			</li>
 		</ul>
 	</dd>
@@ -1558,6 +1684,175 @@ console.log(vendorPrefix()); // {dom: &quot;Webkit&quot;, lowercase: &quot;webki
             </dl>
     
 
+    
+        <h3 class="subsection-title">Events</h3>
+
+        <dl>
+            
+<hr>
+<dt>
+    <h4 class="name" id="event:PREFERS_COLOR_SCHEME_EVENTS">PREFERS_COLOR_SCHEME_EVENTS</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>PrefersColorSchemeObserverEvent Types</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>CHANGE</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>변경 시점</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>GET_STATUS</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>현재 상태값 체크</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="observer_PrefersColorSchemeObserver.ts.html">observer/PrefersColorSchemeObserver.ts</a>,
+				 <a href="observer_PrefersColorSchemeObserver.ts.html#sunlight-1-line-22">line 22</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        </dl>
     
 </article>
 
