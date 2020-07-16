@@ -369,6 +369,21 @@ export class IntersectionObserver extends EventEmitter {
     }
   }
 
+  /**
+   * element 가 이미 노출된 경우 등, IntersectionObserver 등록으로 판단이 어려울 경우<br>
+   * IntersectionObserver.getIntersectionEntry 를 이용하여 target 의 노출 여부를 판단
+   * @static
+   * @param {Partial<IIntersectionObserverExtOption>} initParams
+   * @param {Element} initParams.target
+   * @param {Number} [initParams.visibleRatio=0]
+   * @param {Number} [initParams.throttle=300]
+   * @param {Function|null} [initParams.callback={@link noop}] callback function
+   * @param {IntersectionObserverInit} [initParams.options={}]
+   * @returns {IIntersectionChangeData}
+   * @memberof IntersectionObserver
+   * @example
+   .. TODO
+   */
   static getIntersectionEntry(initParams: Partial<IIntersectionObserverExtOption>): IIntersectionChangeData {
     return new ExtIntersectionObserverEntry(initParams).getChangeData();
   }
@@ -422,7 +437,7 @@ export class IntersectionObserver extends EventEmitter {
   }
 
   /**
-   * destory
+   * destroy
    * @returns {IntersectionObserver}
    * @memberof IntersectionObserver
    */

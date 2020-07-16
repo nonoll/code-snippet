@@ -123,3 +123,16 @@ export interface IIntersectionChangeData {
   isVisible: boolean;
   direction: INTERSECTION_DIRECTIONS;
 };
+
+/**
+ * PrefersColorSchemeStatus
+ * @memberof PrefersColorSchemeObserver
+ * @alias IPrefersColorSchemeStatus
+ * @interface
+ * @property {Boolean} isDark
+ * @property {Boolean} isLight
+ */
+export interface IPrefersColorSchemeStatus {
+  isDark: boolean;
+  isLight: boolean;
+};
