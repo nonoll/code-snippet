@@ -7,12 +7,11 @@ describe('# @nonoll/code-snippet/observer/MutationObserver Spec Test', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({});
 
-    const mockMarkup = [
-      '<div id="mock_markup">',
-        '<div id="target">',
-        '</div>',
-      '</div>'
-    ].join('');
+    const mockMarkup = `
+      <div id="mock_markup">
+        <div id="target"></div>
+      </div>
+    `;
     document.body.insertAdjacentHTML('afterbegin', mockMarkup);
   });
 
