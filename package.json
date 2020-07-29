@@ -22,7 +22,11 @@
   ],
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start:angular": "ng serve example",
+    "start:react": "cd projects/example/react && npm run dev",
+    "start:svelte": "cd projects/example/svelte && npm run dev",
+    "start:vanilla": "cd projects/example/vanilla && npm run dev",
+    "start:vue": "cd projects/example/vue && npm run serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
