@@ -55,7 +55,7 @@
     "@angular-devkit/build-ng-packagr": "~0.901.10",
     "@angular/cli": "~10.0.4",
     "@angular/compiler-cli": "~10.0.1",
-    "@angular/language-service": "~10.0.4",
+    "@angular/language-service": "~10.0.6",
     "@nonoll/jsdoc": "https://github.com/nonoll/jsdoc#master",
     "@types/jasmine": "~3.5.11",
     "@types/jasminewd2": "~2.0.3",
