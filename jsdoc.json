@@ -9,7 +9,7 @@
 			"./projects"
 		],
 		"includePattern": ".+\\.(j|t)s(doc|x)?$",
-    "excludePattern": "(node_modules/|docs)"
+    "excludePattern": "(node_modules/|docs|projects/example/)"
 	},
 	"plugins": [
     "plugins/markdown"
