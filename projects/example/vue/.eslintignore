@@ -7,7 +7,7 @@
 /dist
 /public
 /src/assets
-/code-snippet
+/code-snippet/
 
 # configuration files
 .eslintrc.js
