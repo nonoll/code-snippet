@@ -1,4 +1,4 @@
-import { TypeVoidFunction } from '../types';
+import { TypeVoidFunction } from '../types/voidFunction';
 
 /**
  * Event Interface

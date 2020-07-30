@@ -37,6 +37,122 @@
           }
         }
       }
+    },
+    "example": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/example/angular",
+      "sourceRoot": "projects/example/angular/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/example/angular",
+            "index": "projects/example/angular/src/index.html",
+            "main": "projects/example/angular/src/main.ts",
+            "polyfills": "projects/example/angular/src/polyfills.ts",
+            "tsConfig": "projects/example/angular/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/example/angular/src/favicon.ico",
+              "projects/example/angular/src/assets"
+            ],
+            "styles": ["projects/example/angular/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/example/angular/src/environments/environment.ts",
+                  "with": "projects/example/angular/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "example:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "example:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "example:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/example/angular/src/test.ts",
+            "polyfills": "projects/example/angular/src/polyfills.ts",
+            "tsConfig": "projects/example/angular/tsconfig.spec.json",
+            "karmaConfig": "projects/example/angular/karma.conf.js",
+            "assets": [
+              "projects/example/angular/src/favicon.ico",
+              "projects/example/angular/src/assets"
+            ],
+            "styles": ["projects/example/angular/src/styles.scss"],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/example/angular/tsconfig.app.json",
+              "projects/example/angular/tsconfig.spec.json",
+              "projects/example/angular/e2e/tsconfig.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/example/angular/e2e/protractor.conf.js",
+            "devServerTarget": "example:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "example:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "code-snippet",

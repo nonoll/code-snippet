@@ -1,4 +1,4 @@
-import { TypeVoidFunction } from '../types';
+import { TypeVoidFunction } from '../types/voidFunction';
 import { EventEmitter } from '../event';
 import { debounce as _debounce, noop } from '../functions';
 import { IMutationObserverExtOption } from './types';
