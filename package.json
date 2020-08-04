@@ -61,7 +61,7 @@
     "@angular/compiler-cli": "~10.0.1",
     "@angular/language-service": "~10.0.6",
     "@nonoll/jsdoc": "https://github.com/nonoll/jsdoc#master",
-    "@types/jasmine": "~3.5.11",
+    "@types/jasmine": "~3.5.12",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~14.0.26",
     "codecov": "^3.7.2",
