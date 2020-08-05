@@ -1,27 +1,28 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
-    "sourceMap": true,
-    "declaration": false,
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "es2015",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
     "typeRoots": [
-      "node_modules/@types"
+      "./node_modules/@types",
+      "@types"
     ],
-    "lib": [
-      "es2018",
-      "dom"
-    ]
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "es6",
+    "target": "es5",
+    "moduleResolution": "node",
+    "jsx": "react",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
   },
   "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/*.spec.ts"
+    "./src/**/*",
+    "@types/**/*",
+    "./tests/**/*"
   ]
 }
