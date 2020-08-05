@@ -139,11 +139,67 @@ export enum PREFERS_COLOR_SCHEME_EVENTS {
 
 /**
  * prefers-color-scheme 상태 변화를 감지
+&lt;iframe
+  src="https://codesandbox.io/embed/nonollcode-snippet-9gko8?autoresize=1&amp;expanddevtools=1&amp;fontsize=14&amp;hidenavigation=1&amp;initialpath=%2Fobsever-PrefersColorScheme.html&amp;module=%2Fobsever-PrefersColorScheme.html&amp;theme=dark"
+  style="width:100%; height:500px; border:1px solid black; border-radius: 4px; overflow:hidden;"
+  title="@nonoll/code-snippet"
+  allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+  sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+>&lt;/iframe>
  * @export
  * @class PrefersColorSchemeObserver
  * @alias observer/PrefersColorSchemeObserver
  * @extends EventEmitter
  * @throws {Error} browser 에서 지원하지 못하는 경우 - throw new Error('PrefersColorScheme 지원되지 않는 브라우저입니다.');
+ * @example
+import { PrefersColorSchemeObserver, PREFERS_COLOR_SCHEME_EVENTS } from "@nonoll/code-snippet/observer";
+
+const createElement = ({ tag = 'div', id = '', style = '', value = '', text = '' }) => {
+  const doc = window.document;
+  const target = doc.createElement(tag);
+  target.setAttribute('id', id);
+  target.setAttribute('style', style);
+  target.setAttribute('value', value);
+  if (text) {
+    target.textContent = text;
+  }
+  return target;
+}
+
+let observer;
+
+export const forExample = () => {
+  if (observer) {
+    console.log("already example");
+    return;
+  }
+
+  const doc = window.document;
+
+  observer = new PrefersColorSchemeObserver();
+
+  observer.on(PREFERS_COLOR_SCHEME_EVENTS.CHANGE, ({ isDark, isLight }) => {
+    console.log("change", isDark, isLight);
+  });
+
+  observer.attach();
+  observer.emit(PREFERS_COLOR_SCHEME_EVENTS.GET_STATUS);
+
+  const statusButton = createElement({ tag: "button", text: "status" });
+
+  doc.body.appendChild(statusButton);
+
+  statusButton.addEventListener("click", e => {
+    e.preventDefault();
+    console.log("statusButton clicked");
+    if (!observer) {
+      return;
+    }
+    observer.emit(PREFERS_COLOR_SCHEME_EVENTS.GET_STATUS);
+  });
+};
+
+forExample();
  */
 export class PrefersColorSchemeObserver extends EventEmitter {
   private checkColorScheme = `(prefers-color-scheme: ${PREFERS_COLOR_SCHEME.DARK})`;
@@ -159,10 +215,21 @@ export class PrefersColorSchemeObserver extends EventEmitter {
     this.onPrefersColorSchemeChangeListener = this.onPrefersColorSchemeChangeListener.bind(this);
   }
 
+  /**
+   * prefers-color-scheme 지원 여부 반환
+   * @static
+   * @returns {boolean}
+   * @memberof PrefersColorSchemeObserver
+   */
   static isSupport(): boolean {
     return !!window.matchMedia;
   }
 
+  /**
+   * 이벤트 감지 설정
+   * @returns {PrefersColorSchemeObserver}
+   * @memberof PrefersColorSchemeObserver
+   */
   public attach(): PrefersColorSchemeObserver {
     window.matchMedia(this.checkColorScheme).addEventListener('change', this.onPrefersColorSchemeChangeListener);
     this.on(PREFERS_COLOR_SCHEME_EVENTS.GET_STATUS, this.onPrefersColorSchemeChangeListener);
@@ -170,6 +237,11 @@ export class PrefersColorSchemeObserver extends EventEmitter {
     return this;
   }
 
+  /**
+   * 이벤트 감지 해제
+   * @returns {PrefersColorSchemeObserver}
+   * @memberof PrefersColorSchemeObserver
+   */
   public detach(): PrefersColorSchemeObserver {
     window.matchMedia(this.checkColorScheme).removeEventListener('change', this.onPrefersColorSchemeChangeListener);
     this.off(PREFERS_COLOR_SCHEME_EVENTS.GET_STATUS, this.onPrefersColorSchemeChangeListener);
@@ -177,6 +249,11 @@ export class PrefersColorSchemeObserver extends EventEmitter {
     return this;
   }
 
+  /**
+   * 현재 상태를 반환
+   * @returns {IPrefersColorSchemeStatus}
+   * @memberof PrefersColorSchemeObserver
+   */
   public getStatus(): IPrefersColorSchemeStatus {
     const { matches } = window.matchMedia(this.checkColorScheme);
     const status: IPrefersColorSchemeStatus = {
