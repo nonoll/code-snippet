@@ -1,6 +1,6 @@
 {
   "name": "@nonoll/code-snippet",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "author": {
     "name": "nonoll",
@@ -22,7 +22,9 @@
   "homepage": "https://nonoll.github.io/code-snippet",
   "keywords": [
     "nonoll",
-    "code-snippet"
+    "code-snippet",
+    "browser",
+    "observer"
   ],
   "peerDependencies": {
     "@angular/common": "^8.2.14",

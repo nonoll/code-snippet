@@ -1,6 +1,6 @@
 {
   "name": "code-snippet",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "author": {
     "name": "nonoll",
@@ -18,7 +18,9 @@
   "homepage": "https://nonoll.github.io/code-snippet",
   "keywords": [
     "nonoll",
-    "code-snippet"
+    "code-snippet",
+    "browser",
+    "observer"
   ],
   "scripts": {
     "ng": "ng",
@@ -34,7 +36,7 @@
     "dev:env": "git-hooks/install_hooks.sh",
     "watch:jsdoc": "nodemon --exec 'jsdoc -c jsdoc.json' --watch ./projects/* -e js,ts,md",
     "watch:test": "ng test --code-coverage=true --browsers=ChromeHeadless",
-    "travis:build": "ng build",
+    "travis:build": "ng build --prod",
     "travis:jsdoc": "rm -rf ./docs && jsdoc -c jsdoc.json",
     "travis:test": "ng test --watch=false --code-coverage=true --browsers=ChromeHeadless",
     "travis:codecov": "codecov",

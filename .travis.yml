@@ -48,9 +48,9 @@ services:
   - xvfb
 
 script:
-  - npm run travis:build
-  - npm run travis:jsdoc
   - npm run travis:test
+  - npm run travis:jsdoc
+  - npm run travis:build
 
 branches:
   only:
