@@ -1,0 +1,17 @@
+@charset "utf-8";
+@import "./variables/color.scss";
+@import "./functions/mixin.scss";
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  src:  local('Noto Sans KR Medium'), local('NotoSansKR-Medium'),
+        url('~/fonts/noto-sans-kr-500.woff') format('woff'),
+        url('~/fonts/noto-sans-kr-500.woff2') format('woff2');
+}
+
+#app {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: url('~/images/typescript-bg.png') no-repeat 50% 50%;
+  background-size: contain;
+  background-color: $color-white;
+}

@@ -1,0 +1,42 @@
+{
+	"tags": {
+		"allowUnknownTags" : true,
+		"dictionaries": ["jsdoc","closure"]
+	},
+	"source": {
+		"include": [
+			"README.md",
+			"./src"
+		],
+		"includePattern": ".+\\.(j|t)s(doc|x)?$",
+    "excludePattern": "(node_modules/|docs)"
+	},
+	"plugins": [
+    "plugins/markdown"
+	],
+	"opts": {
+		"template": "node_modules/ink-docstrap/template",
+		"encoding": "utf8",
+		"destination": "./docs/",
+		"recurse": true,
+		"verbose": true
+	},
+	"templates": {
+		"theme": "simplex",
+		"navType": "vertical",
+		"inverseNav": true,
+		"syntaxTheme": "dark",
+		"cleverLinks": false,
+		"monospaceLinks": false,
+		"dateFormat": "YYYY-MM-DD",
+		"outputSourceFiles": true,
+		"outputSourcePath": true,
+		"systemName": "@nonoll/webpack-typescript-boilerplate",
+		"footer": "",
+		"copyright": "@nonoll/webpack-typescript-boilerplate",
+		"linenums": true,
+		"collapseSymbols": false,
+		"protocol": "html://",
+		"methodHeadingReturns": false
+	}
+}
