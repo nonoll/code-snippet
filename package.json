@@ -81,7 +81,7 @@
     "nodemon": "^2.0.4",
     "npm-registry-fetch": ">=8.1.4",
     "protractor": "~7.0.0",
-    "serialize-javascript": ">=3.1.0",
+    "serialize-javascript": ">=5.0.1",
     "ts-node": "~9.0.0",
     "tsickle": "^0.39.1",
     "tslint": "~6.1.3",
