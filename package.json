@@ -59,7 +59,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1001.4",
     "@angular-devkit/build-ng-packagr": "~0.901.10",
-    "@angular/cli": "~10.1.4",
+    "@angular/cli": "~10.1.7",
     "@angular/compiler-cli": "~10.0.1",
     "@angular/language-service": "~10.1.5",
     "@nonoll/jsdoc": "https://github.com/nonoll/jsdoc#master",
