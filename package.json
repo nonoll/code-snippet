@@ -79,7 +79,7 @@
     "karma-jasmine-html-reporter": "^1.5.4",
     "ng-packagr": "^9.1.5",
     "nodemon": "^2.0.7",
-    "npm-registry-fetch": ">=9.0.0",
+    "npm-registry-fetch": ">=10.1.1",
     "protractor": "~7.0.0",
     "serialize-javascript": ">=5.0.1",
     "ts-node": "~9.1.1",
